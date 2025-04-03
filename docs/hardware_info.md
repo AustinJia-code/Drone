@@ -1,3 +1,6 @@
+# Build Guide
+
+
 # Hardware
 | Component | Name | Cost | Purpose |
 |-----------|------|------|---------|
