@@ -2,14 +2,55 @@
 
 
 ## Setup
+**Teleop**
+On RPi5:
+1. Edit /boot/config.txt
+   ```
+   enable_uart=1
+   ```
+2. Disable serial console
+   ```
+   sudo raspi-config
+    # -> Interfacing Options -> Serial
+    # -> Disable login shell over serial, but enable hardware serial port
+   ``` 
+3. Reboot
+   ```
+   sudo reboot
+   ```
+4. Find serial port of Pixhawk, UART on the Pi usually shows up as /dev/serial0 or /dev/ttyAMA0.
+   ```
+   ls -l /dev/serial*
+   ```
+5. Launch MAVRos
+   ```
+   roslaunch mavros apm.launch fcu_url:=/dev/serial0:57600
+   ```
+> Use apm.launch (not px4.launch) - Pixhawk 2.4.8 runs ArduPilot, not PX4
+> Ensure baud rate matches the Pixhawk TELEM2 port (default is usually 57600).
+
+On Pixhawk:
+1. Configure ```TELEM2``` via Mission Planner
+   ```
+   SERIAL2_PROTOCOL → 1 (MAVLink)
+   SERIAL2_BAUD → 57 (for 57600 baud)
+   ```
+
+On RPi5:
+1. Verify connection
+   ```rostopic echo /mavros/state```
 
 
-## Libraries
+## Software
+| Software | Purpose |
+|----------|---------|
+| PX4 1.14 | Flight controller |
+
 | Library | Purpose |
 |---------|---------|
-| ROS | Middleware (Jetson->PixHawk communication) using MAVRos package |
+| ROS | Middleware |
+| MAVRos | MAVLink ROS package |
 | OpenCV | Basic image processing |
-| libcoral | Coral TPU interfacing |
 | YOLO | Object detection |
 
 ## Design

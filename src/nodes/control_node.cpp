@@ -1,3 +1,4 @@
-#include <ros/ros.h>
-#include "/control/tele_op.h"
-
+/**
+ * @file control_node.cpp
+ * @brief ROS node for drone control
+ */
