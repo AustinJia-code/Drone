@@ -26,11 +26,11 @@
 ---
 
 ## Open Bugs  
-### **Issue #001** – Example  
-**Reported:** [`YYYY-MM-DD`](https://your-repo/commit/...)
-**Location:** _Module / Feature Name_  
+### **Issue #001** – Ground Validity  
+**Reported:** [`2024-04-05`](https://github.com/AustinJia-code/Drone/commit/180b03ed4e96e8fd1c1c3ed38d92414c1e9cd131)
+**Location:** _assets/DroneWiring.drawio_  
 **Description:**  
-_A concise explanation of the issue._  
+_Components are not all grounded to the same thing necessarily - check validity._  
 
 ---
 

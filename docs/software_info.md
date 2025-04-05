@@ -2,44 +2,13 @@
 
 
 ## Setup
-**Teleop**
-On RPi5:
-1. Edit /boot/config.txt
-   ```
-   enable_uart=1
-   ```
-2. Disable serial console
-   ```
-   sudo raspi-config
-    # -> Interfacing Options -> Serial
-    # -> Disable login shell over serial, but enable hardware serial port
-   ``` 
-3. Reboot
-   ```
-   sudo reboot
-   ```
-4. Find serial port of Pixhawk, UART on the Pi usually shows up as /dev/serial0 or /dev/ttyAMA0.
-   ```
-   ls -l /dev/serial*
-   ```
-5. Launch MAVRos
-   ```
-   roslaunch mavros apm.launch fcu_url:=/dev/serial0:57600
-   ```
-> Use apm.launch (not px4.launch) - Pixhawk 2.4.8 runs ArduPilot, not PX4
-> Ensure baud rate matches the Pixhawk TELEM2 port (default is usually 57600).
-
-On Pixhawk:
-1. Configure ```TELEM2``` via Mission Planner
-   ```
-   SERIAL2_PROTOCOL → 1 (MAVLink)
-   SERIAL2_BAUD → 57 (for 57600 baud)
-   ```
-
-On RPi5:
-1. Verify connection
-   ```rostopic echo /mavros/state```
-
+1. Make sure you RPi5 is running Ubuntu 22.04.5 Jammy Jellyfish
+2.
+3. Follow: https://docs.px4.io/main/en/ros2/user_guide.html
+     - https://github.com/PX4/px4_ros_com/blob/main/launch/sensor_combined_listener.launch.py
+     - https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp
+4. Understand: https://docs.px4.io/main/en/ros2/offboard_control.html 
+     - https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp 
 
 ## Software
 | Software | Purpose |
@@ -48,7 +17,7 @@ On RPi5:
 
 | Library | Purpose |
 |---------|---------|
-| ROS | Middleware |
+| ROS 2 "Humble" | Middleware |
 | MAVRos | MAVLink ROS package |
 | OpenCV | Basic image processing |
 | YOLO | Object detection |
