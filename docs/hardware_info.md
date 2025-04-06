@@ -1,5 +1,5 @@
 # Build Guide
-~:)~
+https://docs.px4.io/main/en/frames_multicopter/holybro_s500_v2_pixhawk4.html 
 
 # Hardware
 | Component         | Name                                                                                    | Cost    | Info                              |
@@ -27,7 +27,7 @@ True final cost (after shipping, tax, invalid discounts): $700
 - Nano @ 5V, ~10W -> ~2A
 - Pixhawk @ 5.2V -> ~3A
 
-**Flight Time Calculation:** ~3:45min
+**Flight Time Calculation:** ~5:20min
 
 Flight Time (min) = (Battery Capacity (mAh) * efficiency) / current (mA) * 60
 

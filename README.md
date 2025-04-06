@@ -21,3 +21,7 @@ MAVRos
 
 Person-Tracking Hexacopter 
   - https://m.youtube.com/watch?v=o3eywsXBpwA   
+  - https://github.com/Matchstic/stanley
+
+RPi + PX4
+  - https://github.com/Marnonel6/ROS2_offboard_drone_control

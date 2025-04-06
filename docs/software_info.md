@@ -3,7 +3,7 @@
 
 ## Setup
 1. Make sure you RPi5 is running Ubuntu 22.04.5 Jammy Jellyfish
-2.
+2. Set up SSH
 3. Follow: https://docs.px4.io/main/en/ros2/user_guide.html
      - https://github.com/PX4/px4_ros_com/blob/main/launch/sensor_combined_listener.launch.py
      - https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp
@@ -41,70 +41,15 @@ Drone/
 ├── ISSUES.md                           # TODO, bugs
 ├── .gitignore
 ├── CMakeLists.txt
-├── scripts/                            # Helper scripts
-│   └── calibration_tool.py             # Camera calibration tool
-├── config/                             # Config files
-│   ├── camera_params.yaml              # Camera calibration parameters
-│   ├── detector_config.yaml            # YOLO model configuration
-│   ├── flight_params.yaml              # Flight controller parameters
-│   └── ros_params.yaml                 # ROS node configurations
-├── include/
-│   ├── perception/
-│   │   ├── detector.h                  # Object detection interface
-│   │   └── depth.h                     # Stereo depth processing
-│   ├── localization/
-│   │   ├── fusion.h                    # Sensor fusion interface
-│   │   ├── gps.h                       # Positioning system
-│   │   └── imu.h                       # State estimation
-│   ├── planning/
-│   │   ├── path_planner.h              # Path planning interface
-│   │   └── command_builder.h           # Mission manager
-│   ├── control/
-│   │   ├── commander.h                 # Flight command interface
-│   │   ├── mavlink_bridge.h            # MAVLink communication
-│   │   └── tele_op.h                   # Controller input handling
-│   └── util/
-|       ├── state.hpp                   # Pose, velocity, state info
-│       └── math_funcs.hpp              # Misc math functions
 ├── src/
-│   ├── perception/
-│   │   ├── CMakeLists.txt
-│   │   ├── detector.cpp
-│   │   └── depth.cpp
-│   ├── localization/
-│   │   ├── CMakeLists.txt
-│   │   ├── fusion.cpp
-│   │   ├── gps.cpp
-│   │   └── imu.cpp
-│   ├── planning/
-│   │   ├── CMakeLists.txt
-│   │   ├── path_planner.cpp
-│   │   └── command_builder.cpp
-│   ├── control/
-│   │   ├── CMakeLists.txt
-│   │   ├── commander.cpp
-│   │   ├── mavlink_bridge.cpp
-│   │   └── tele_op.cpp
-│   └── nodes/
-│       ├── detector_node.cpp           # Raw image -> IDs and relative poses
-│       ├── localizer_node.cpp          # Sensor data -> global position
-│       ├── planner_node.cpp            # Position + target -> commands
-│       └── control_node.cpp            # Commands -> pixhawk
+|   ├── sensor_node.cpp                 # Read sensors
+│   └── control_node.cpp                # Issue commands
 ├── launch/
 │   └── main.launch                     # Main system startup
 ├── models/
-│   ├── yolo/
-│   │   ├── yolov8n_edgetpu.tflite      # Quantized model for Coral TPU
-│   │   └── coco_labels.txt             # Object labels
-├── third_party/
-│   ├── CMakeLists.txt                  # Third-party build config
-│   └── README.md                       # Third-party libraries info
-├── tests/
-│   ├── CMakeLists.txt
-│   ├── perception_tests.cpp
-│   ├── planning_tests.cpp
-│   └── control_tests.cpp
+│   └── yolo/
+│       ├── yolov8n_edgetpu.tflite      # Quantized model for Coral TPU
+│       └── coco_labels.txt             # Object labels
 └── docs/
     ├── hardware_info.md                # Hardware info
-    ├── software_info.md                # Software info
-    └── setup_guide.md                  # Holistic setup guide
+    └── software_info.md                # Software info
