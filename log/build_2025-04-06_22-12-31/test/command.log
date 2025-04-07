@@ -1,2 +1,0 @@
-Invoking command in '/home/osten/Drone/build/test': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/osten/Drone/src/test -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/test
-Invoked command in '/home/osten/Drone/build/test' returned '1': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/osten/Drone/src/test -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/test

@@ -1,8 +1,0 @@
-[0.021s] Invoking command in '/home/osten/Drone/build/test': DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/osten/Drone/src/test -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/test
-[0.040s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
-[0.350s] -- Found builtin_interfaces: 2.0.2 (/opt/ros/jazzy/share/builtin_interfaces/cmake)
-[0.770s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
-[0.785s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
-[0.801s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
-[0.818s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
-[0.931s] Error parsing '/home/osten/Drone/src/test/package.xml':

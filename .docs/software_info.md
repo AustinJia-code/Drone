@@ -2,7 +2,7 @@
 1. cd src
 2. git clone https://github.com/PX4/px4_msgs.git
 3. cd ..
-1. colcon build
+1. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 2. source install/setup.bash
 3. launch!
      - ros2 launch sensor sensor.launch.py

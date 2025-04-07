@@ -1,1 +1,0 @@
-Invoking command in '/home/osten/Drone/build/sensor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/osten/Drone/src/sensor -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/sensor

@@ -1,4 +1,0 @@
-Invoking command in '/home/osten/Drone/build/test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/osten/Drone/src/test -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/test
-Invoked command in '/home/osten/Drone/build/test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/osten/Drone/src/test -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/test
-Invoking command in '/home/osten/Drone/build/test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/osten/Drone/build/test -- -j20 -l20
-Invoked command in '/home/osten/Drone/build/test' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/osten/Drone/build/test -- -j20 -l20
