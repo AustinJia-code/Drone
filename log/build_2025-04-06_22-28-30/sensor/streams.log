@@ -1,0 +1,28 @@
+[0.356s] Invoking command in '/home/osten/Drone/build/sensor': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/osten/Drone/build/sensor -- -j20 -l20
+[0.417s] [ 50%] [32mBuilding CXX object CMakeFiles/sensor_node.dir/src/sensor_node.cpp.o[0m
+[4.544s] [100%] [32m[1mLinking CXX executable sensor_node[0m
+[4.933s] [100%] Built target sensor_node
+[4.946s] Invoked command in '/home/osten/Drone/build/sensor' returned '0': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/osten/Drone/build/sensor -- -j20 -l20
+[4.947s] Invoking command in '/home/osten/Drone/build/sensor': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/osten/Drone/build/sensor
+[4.955s] -- Install configuration: ""
+[4.955s] -- Installing: /home/osten/Drone/install/sensor/lib/sensor/sensor_node
+[4.956s] -- Set non-toolchain portion of runtime path of "/home/osten/Drone/install/sensor/lib/sensor/sensor_node" to ""
+[4.956s] -- Installing: /home/osten/Drone/install/sensor/share/sensor//launch
+[4.956s] -- Installing: /home/osten/Drone/install/sensor/share/sensor//launch/sensor.launch.py
+[4.956s] -- Installing: /home/osten/Drone/install/sensor/share/ament_index/resource_index/package_run_dependencies/sensor
+[4.956s] -- Installing: /home/osten/Drone/install/sensor/share/ament_index/resource_index/parent_prefix_path/sensor
+[4.957s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/environment/ament_prefix_path.sh
+[4.957s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/environment/ament_prefix_path.dsv
+[4.957s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/environment/path.sh
+[4.958s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/environment/path.dsv
+[4.958s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/local_setup.bash
+[4.958s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/local_setup.sh
+[4.958s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/local_setup.zsh
+[4.958s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/local_setup.dsv
+[4.959s] -- Up-to-date: /home/osten/Drone/install/sensor/share/sensor/package.dsv
+[4.959s] -- Installing: /home/osten/Drone/install/sensor/share/ament_index/resource_index/packages/sensor
+[4.959s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/cmake/ament_cmake_export_dependencies-extras.cmake
+[4.959s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/cmake/sensorConfig.cmake
+[4.959s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/cmake/sensorConfig-version.cmake
+[4.959s] -- Installing: /home/osten/Drone/install/sensor/share/sensor/package.xml
+[4.961s] Invoked command in '/home/osten/Drone/build/sensor' returned '0': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/osten/Drone/build/sensor

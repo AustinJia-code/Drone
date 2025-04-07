@@ -1,0 +1,24 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/control_node.dir/src/control_node.cpp.o[0m
+[100%] [32m[1mLinking CXX executable control_node[0m
+[100%] Built target control_node
+-- Install configuration: ""
+-- Installing: /home/osten/Drone/install/control/lib/control/control_node
+-- Set non-toolchain portion of runtime path of "/home/osten/Drone/install/control/lib/control/control_node" to ""
+-- Installing: /home/osten/Drone/install/control/share/control//launch
+-- Installing: /home/osten/Drone/install/control/share/control//launch/control.launch.py
+-- Installing: /home/osten/Drone/install/control/share/ament_index/resource_index/package_run_dependencies/control
+-- Installing: /home/osten/Drone/install/control/share/ament_index/resource_index/parent_prefix_path/control
+-- Installing: /home/osten/Drone/install/control/share/control/environment/ament_prefix_path.sh
+-- Installing: /home/osten/Drone/install/control/share/control/environment/ament_prefix_path.dsv
+-- Installing: /home/osten/Drone/install/control/share/control/environment/path.sh
+-- Installing: /home/osten/Drone/install/control/share/control/environment/path.dsv
+-- Installing: /home/osten/Drone/install/control/share/control/local_setup.bash
+-- Installing: /home/osten/Drone/install/control/share/control/local_setup.sh
+-- Installing: /home/osten/Drone/install/control/share/control/local_setup.zsh
+-- Installing: /home/osten/Drone/install/control/share/control/local_setup.dsv
+-- Up-to-date: /home/osten/Drone/install/control/share/control/package.dsv
+-- Installing: /home/osten/Drone/install/control/share/ament_index/resource_index/packages/control
+-- Installing: /home/osten/Drone/install/control/share/control/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/osten/Drone/install/control/share/control/cmake/controlConfig.cmake
+-- Installing: /home/osten/Drone/install/control/share/control/cmake/controlConfig-version.cmake
+-- Installing: /home/osten/Drone/install/control/share/control/package.xml

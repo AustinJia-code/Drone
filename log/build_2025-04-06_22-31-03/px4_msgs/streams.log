@@ -1,0 +1,24 @@
+[0.019s] Invoking command in '/home/osten/Drone/build/px4_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/osten/Drone/build/px4_msgs -- -j20 -l20
+[1.120s] [  0%] Built target px4_msgs__rosidl_generator_type_description
+[1.181s] [  0%] Built target ament_cmake_python_copy_px4_msgs
+[1.191s] [  0%] Built target px4_msgs__cpp
+[1.364s] [ 29%] Built target px4_msgs__rosidl_generator_c
+[1.475s] running egg_info
+[1.481s] [ 39%] Built target px4_msgs__rosidl_typesupport_c
+[1.500s] writing px4_msgs.egg-info/PKG-INFO
+[1.501s] [ 49%] Built target px4_msgs__rosidl_typesupport_introspection_c
+[1.501s] writing dependency_links to px4_msgs.egg-info/dependency_links.txt
+[1.501s] writing top-level names to px4_msgs.egg-info/top_level.txt
+[1.529s] [ 59%] Built target px4_msgs__rosidl_typesupport_cpp
+[1.549s] [ 69%] Built target px4_msgs__rosidl_typesupport_introspection_cpp
+[1.566s] [ 79%] Built target px4_msgs__rosidl_typesupport_fastrtps_c
+[1.572s] [ 89%] Built target px4_msgs__rosidl_typesupport_fastrtps_cpp
+[1.578s] reading manifest file 'px4_msgs.egg-info/SOURCES.txt'
+[1.582s] writing manifest file 'px4_msgs.egg-info/SOURCES.txt'
+[1.598s] [ 89%] Built target px4_msgs
+[1.619s] [ 89%] Built target ament_cmake_python_build_px4_msgs_egg
+[1.636s] [ 89%] Built target px4_msgs__py
+[1.785s] [ 99%] Built target px4_msgs__rosidl_generator_py
+[1.815s] [100%] Built target px4_msgs_s__rosidl_typesupport_introspection_c
+[1.815s] [100%] Built target px4_msgs_s__rosidl_typesupport_fastrtps_c
+[1.816s] [100%] Built target px4_msgs_s__rosidl_typesupport_c

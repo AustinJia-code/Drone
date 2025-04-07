@@ -1,0 +1,272 @@
+[0.512s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.512s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=20, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, verb_parser=<colcon_defaults.argument_parser.defaults.DefaultArgumentsDecorator object at 0x7fe6b9618560>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x7fe6b973c6b0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x7fe6b973c6b0>>)
+[0.624s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.625s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.625s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.625s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.625s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.625s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.625s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/osten/Drone'
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.625s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.626s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.682s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extensions ['ignore', 'ignore_ament_install']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extension 'ignore'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extension 'ignore_ament_install'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extensions ['colcon_pkg']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extension 'colcon_pkg'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extensions ['colcon_meta']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extension 'colcon_meta'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extensions ['ros']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(src/control) by extension 'ros'
+[0.693s] DEBUG:colcon.colcon_core.package_identification:Package 'src/control' with type 'ros.ament_cmake' and name 'control'
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ignore'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ignore_ament_install'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['colcon_pkg']
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'colcon_pkg'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['colcon_meta']
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'colcon_meta'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extensions ['ros']
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(src/px4_msgs) by extension 'ros'
+[0.695s] DEBUG:colcon.colcon_core.package_identification:Package 'src/px4_msgs' with type 'ros.ament_cmake' and name 'px4_msgs'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extensions ['ignore', 'ignore_ament_install']
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extension 'ignore'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extension 'ignore_ament_install'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extensions ['colcon_pkg']
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extension 'colcon_pkg'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extensions ['colcon_meta']
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extension 'colcon_meta'
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extensions ['ros']
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(src/sensor) by extension 'ros'
+[0.697s] DEBUG:colcon.colcon_core.package_identification:Package 'src/sensor' with type 'ros.ament_cmake' and name 'sensor'
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extensions ['ignore', 'ignore_ament_install']
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extension 'ignore'
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extension 'ignore_ament_install'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extensions ['colcon_pkg']
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extension 'colcon_pkg'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extensions ['colcon_meta']
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extension 'colcon_meta'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extensions ['ros']
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src/system_launch) by extension 'ros'
+[0.699s] DEBUG:colcon.colcon_core.package_identification:Package 'src/system_launch' with type 'ros.ament_cmake' and name 'system_launch'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extensions ['ignore', 'ignore_ament_install']
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extension 'ignore'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extension 'ignore_ament_install'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extensions ['colcon_pkg']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extension 'colcon_pkg'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extensions ['colcon_meta']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extension 'colcon_meta'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extensions ['ros']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extension 'ros'
+[0.701s] DEBUG:colcon.colcon_core.package_identification:Failed to parse potential ROS package manifest in'src/test': Error(s) in package 'src/test/package.xml':
+Error(s):
+- The "package" tag must not have the following attributes: test
+- The manifest of package "control" (with format version 1) must not contain the following tags: depend
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extensions ['cmake', 'python']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extension 'cmake'
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(src/test) by extension 'python'
+[0.703s] DEBUG:colcon.colcon_core.package_identification:Package 'src/test' with type 'cmake' and name 'test'
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.704s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.704s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.704s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.704s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.748s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_args' from command line to 'None'
+[0.749s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_target' from command line to 'None'
+[0.749s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.749s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.749s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.749s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.749s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.749s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.749s] Level 5:colcon.colcon_core.verb:set package 'px4_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.749s] DEBUG:colcon.colcon_core.verb:Building package 'px4_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/osten/Drone/build/px4_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/osten/Drone/install/px4_msgs', 'merge_install': False, 'path': '/home/osten/Drone/src/px4_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'cmake_args' from command line to 'None'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'cmake_target' from command line to 'None'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'cmake_clean_cache' from command line to 'False'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'cmake_clean_first' from command line to 'False'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'cmake_force_configure' from command line to 'False'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'ament_cmake_args' from command line to 'None'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'catkin_cmake_args' from command line to 'None'
+[0.750s] Level 5:colcon.colcon_core.verb:set package 'control' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.751s] DEBUG:colcon.colcon_core.verb:Building package 'control' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/osten/Drone/build/control', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/osten/Drone/install/control', 'merge_install': False, 'path': '/home/osten/Drone/src/control', 'symlink_install': False, 'test_result_base': None}
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'cmake_args' from command line to 'None'
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'cmake_target' from command line to 'None'
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'cmake_clean_cache' from command line to 'False'
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'cmake_clean_first' from command line to 'False'
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'cmake_force_configure' from command line to 'False'
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'ament_cmake_args' from command line to 'None'
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'catkin_cmake_args' from command line to 'None'
+[0.751s] Level 5:colcon.colcon_core.verb:set package 'sensor' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.751s] DEBUG:colcon.colcon_core.verb:Building package 'sensor' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/osten/Drone/build/sensor', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/osten/Drone/install/sensor', 'merge_install': False, 'path': '/home/osten/Drone/src/sensor', 'symlink_install': False, 'test_result_base': None}
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'cmake_args' from command line to 'None'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'cmake_target' from command line to 'None'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'cmake_clean_cache' from command line to 'False'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'cmake_clean_first' from command line to 'False'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'cmake_force_configure' from command line to 'False'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'ament_cmake_args' from command line to 'None'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'catkin_cmake_args' from command line to 'None'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'test' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.752s] DEBUG:colcon.colcon_core.verb:Building package 'test' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/osten/Drone/build/test', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/osten/Drone/install/test', 'merge_install': False, 'path': '/home/osten/Drone/src/test', 'symlink_install': False, 'test_result_base': None}
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'cmake_args' from command line to 'None'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'cmake_target' from command line to 'None'
+[0.752s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.753s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'cmake_clean_cache' from command line to 'False'
+[0.753s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'cmake_clean_first' from command line to 'False'
+[0.753s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'cmake_force_configure' from command line to 'False'
+[0.753s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'ament_cmake_args' from command line to 'None'
+[0.753s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'catkin_cmake_args' from command line to 'None'
+[0.753s] Level 5:colcon.colcon_core.verb:set package 'system_launch' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.753s] DEBUG:colcon.colcon_core.verb:Building package 'system_launch' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/osten/Drone/build/system_launch', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/osten/Drone/install/system_launch', 'merge_install': False, 'path': '/home/osten/Drone/src/system_launch', 'symlink_install': False, 'test_result_base': None}
+[0.754s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.756s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.758s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/osten/Drone/src/px4_msgs' with build type 'ament_cmake'
+[0.758s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/osten/Drone/src/px4_msgs'
+[0.771s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.771s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.794s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/osten/Drone/build/px4_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/osten/Drone/src/px4_msgs -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/px4_msgs
+[13.802s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/osten/Drone/build/px4_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake /home/osten/Drone/src/px4_msgs -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/px4_msgs
+[13.805s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/osten/Drone/build/px4_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/osten/Drone/build/px4_msgs -- -j20 -l20
+[262.620s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/osten/Drone/build/px4_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/osten/Drone/build/px4_msgs -- -j20 -l20
+[262.632s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/osten/Drone/build/px4_msgs': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/osten/Drone/build/px4_msgs
+[264.354s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_msgs)
+[264.356s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/osten/Drone/build/px4_msgs' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/osten/Drone/build/px4_msgs
+[264.368s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs' for CMake module files
+[264.369s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs' for CMake config files
+[264.374s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'cmake_prefix_path')
+[264.374s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.dsv'
+[264.376s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.sh'
+[264.379s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/lib'
+[264.379s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'ld_library_path_lib')
+[264.379s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.dsv'
+[264.380s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.sh'
+[264.380s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/bin'
+[264.380s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/lib/pkgconfig/px4_msgs.pc'
+[264.383s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages'
+[264.384s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'pythonpath')
+[264.384s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/pythonpath.dsv'
+[264.384s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/pythonpath.sh'
+[264.385s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/bin'
+[264.385s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/osten/Drone/install/px4_msgs/share/px4_msgs/package.dsv'
+[264.386s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/px4_msgs/share/px4_msgs/package.sh'
+[264.388s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/px4_msgs/share/px4_msgs/package.bash'
+[264.389s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/px4_msgs/share/px4_msgs/package.zsh'
+[264.390s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/osten/Drone/install/px4_msgs/share/colcon-core/packages/px4_msgs)
+[264.391s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(px4_msgs)
+[264.391s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs' for CMake module files
+[264.392s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs' for CMake config files
+[264.397s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'cmake_prefix_path')
+[264.397s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.dsv'
+[264.397s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/cmake_prefix_path.sh'
+[264.398s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/lib'
+[264.398s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'ld_library_path_lib')
+[264.398s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.dsv'
+[264.399s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/ld_library_path_lib.sh'
+[264.399s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/bin'
+[264.399s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/lib/pkgconfig/px4_msgs.pc'
+[264.400s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages'
+[264.400s] Level 1:colcon.colcon_core.shell:create_environment_hook('px4_msgs', 'pythonpath')
+[264.400s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/pythonpath.dsv'
+[264.400s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/osten/Drone/install/px4_msgs/share/px4_msgs/hook/pythonpath.sh'
+[264.401s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/px4_msgs/bin'
+[264.401s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/osten/Drone/install/px4_msgs/share/px4_msgs/package.dsv'
+[264.402s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/px4_msgs/share/px4_msgs/package.sh'
+[264.403s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/px4_msgs/share/px4_msgs/package.bash'
+[264.403s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/px4_msgs/share/px4_msgs/package.zsh'
+[264.404s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/osten/Drone/install/px4_msgs/share/colcon-core/packages/px4_msgs)
+[264.404s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/osten/Drone/src/control' with build type 'ament_cmake'
+[264.405s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/osten/Drone/src/control'
+[264.405s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[264.410s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/osten/Drone/src/sensor' with build type 'ament_cmake'
+[264.410s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/osten/Drone/src/sensor'
+[264.410s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[264.413s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/osten/Drone/src/test'
+[264.414s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[264.660s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/osten/Drone/build/control': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/osten/Drone/src/control -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/control
+[264.665s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/osten/Drone/build/sensor': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/osten/Drone/src/sensor -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/sensor
+[264.670s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/osten/Drone/build/test': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/osten/Drone/src/test -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/test
+[266.854s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/osten/Drone/build/control' returned '0': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/osten/Drone/src/control -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/control
+[266.856s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/osten/Drone/build/control': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/osten/Drone/build/control -- -j20 -l20
+[266.861s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/osten/Drone/build/sensor' returned '0': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/osten/Drone/src/sensor -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/sensor
+[266.862s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/osten/Drone/build/sensor': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/osten/Drone/build/sensor -- -j20 -l20
+[267.243s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/osten/Drone/build/sensor' returned '2': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/osten/Drone/build/sensor -- -j20 -l20
+[267.244s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(sensor)
+[267.244s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/sensor' for CMake module files
+[267.245s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/sensor' for CMake config files
+[267.245s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/sensor/bin'
+[267.245s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/sensor/lib/pkgconfig/sensor.pc'
+[267.245s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/sensor/lib/python3.12/site-packages'
+[267.246s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/sensor/bin'
+[267.246s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/osten/Drone/install/sensor/share/sensor/package.dsv'
+[267.247s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/sensor/share/sensor/package.sh'
+[267.248s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/sensor/share/sensor/package.bash'
+[267.248s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/sensor/share/sensor/package.zsh'
+[267.249s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/osten/Drone/install/sensor/share/colcon-core/packages/sensor)
+[267.251s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(control)
+[267.251s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/control' for CMake module files
+[267.252s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/control' for CMake config files
+[267.253s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/control/bin'
+[267.253s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/control/lib/pkgconfig/control.pc'
+[267.253s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/osten/Drone/build/control' returned '2': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/osten/Drone/build/control -- -j20 -l20
+[267.254s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/control/lib/python3.12/site-packages'
+[267.254s] Level 1:colcon.colcon_core.environment:checking '/home/osten/Drone/install/control/bin'
+[267.255s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/osten/Drone/install/control/share/control/package.dsv'
+[267.256s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/control/share/control/package.sh'
+[267.256s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/control/share/control/package.bash'
+[267.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/osten/Drone/install/control/share/control/package.zsh'
+[267.258s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/osten/Drone/install/control/share/colcon-core/packages/control)
+[269.441s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[269.441s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[269.441s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '2'
+[269.441s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[269.610s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[269.611s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[269.611s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[269.611s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[269.616s] DEBUG:colcon.colcon_notification.desktop_notification.notify2:Failed to initialize notify2: org.freedesktop.DBus.Error.ServiceUnknown: The name org.freedesktop.Notifications was not provided by any .service files
+[269.616s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[269.617s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/osten/Drone/install/local_setup.sh'
+[269.618s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/osten/Drone/install/_local_setup_util_sh.py'
+[269.620s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/osten/Drone/install/setup.sh'
+[269.622s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/osten/Drone/install/local_setup.bash'
+[269.623s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/osten/Drone/install/setup.bash'
+[269.625s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/osten/Drone/install/local_setup.zsh'
+[269.626s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/osten/Drone/install/setup.zsh'

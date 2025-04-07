@@ -1,0 +1,44 @@
+[0.257s] Invoking command in '/home/osten/Drone/build/test': AMENT_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/px4_msgs:${CMAKE_PREFIX_PATH} DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/osten/Drone/src/test -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/test
+[0.275s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.585s] -- Found builtin_interfaces: 2.0.2 (/opt/ros/jazzy/share/builtin_interfaces/cmake)
+[0.994s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[1.005s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[1.020s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.037s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.051s] -- Found eigen3_cmake_module: 0.3.0 (/opt/ros/jazzy/share/eigen3_cmake_module/cmake)
+[1.053s] -- Found geometry_msgs: 5.3.5 (/opt/ros/jazzy/share/geometry_msgs/cmake)
+[1.090s] -- Found px4_msgs: 2.0.1 (/home/osten/Drone/install/px4_msgs/share/px4_msgs/cmake)
+[1.142s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[1.204s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[1.207s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.305s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.13")  
+[1.632s] -- Found FastRTPS: /opt/ros/jazzy/include (Required is at least version "2.13") 
+[1.831s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.228s] -- Found sensor_msgs: 5.3.5 (/opt/ros/jazzy/share/sensor_msgs/cmake)
+[2.382s] Error parsing '/home/osten/Drone/src/test/package.xml':
+[4.962s] Traceback (most recent call last):
+[4.962s]   File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 150, in <module>
+[4.962s]     main()
+[4.963s]   File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 53, in main
+[4.963s]     raise e
+[4.963s]   File "/opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 49, in main
+[4.963s]     package = parse_package_string(
+[4.963s]               ^^^^^^^^^^^^^^^^^^^^^
+[4.963s]   File "/usr/lib/python3/dist-packages/catkin_pkg/package.py", line 786, in parse_package_string
+[4.963s]     raise InvalidPackage('Error(s):%s' % (''.join(['\n- %s' % e for e in errors])), filename)
+[4.963s] catkin_pkg.package.InvalidPackage: Error(s) in package '/home/osten/Drone/src/test/package.xml':
+[4.964s] Error(s):
+[4.964s] - The "package" tag must not have the following attributes: test
+[5.007s] [31mCMake Error at /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+[5.007s]   execute_process(/usr/bin/python3
+[5.008s]   /opt/ros/jazzy/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+[5.008s]   /home/osten/Drone/src/test/package.xml
+[5.008s]   /home/osten/Drone/build/test/ament_cmake_core/package.cmake) returned error
+[5.008s]   code 1
+[5.008s] Call Stack (most recent call first):
+[5.008s]   /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[5.009s]   /opt/ros/jazzy/share/ament_cmake_core/cmake/core/ament_package.cmake:63 (ament_package_xml)
+[5.009s]   CMakeLists.txt:29 (ament_package)
+[5.009s] 
+[5.009s] [0m
+[5.009s] -- Configuring incomplete, errors occurred!

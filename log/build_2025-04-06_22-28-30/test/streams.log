@@ -1,0 +1,45 @@
+[0.021s] Invoking command in '/home/osten/Drone/build/test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/osten/Drone/build/test -- -j20 -l20
+[0.042s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[0.314s] -- Found builtin_interfaces: 2.0.2 (/opt/ros/jazzy/share/builtin_interfaces/cmake)
+[0.715s] -- Found rosidl_generator_c: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_c/cmake)
+[0.725s] -- Found rosidl_generator_cpp: 4.6.5 (/opt/ros/jazzy/share/rosidl_generator_cpp/cmake)
+[0.739s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.754s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.769s] -- Found rclcpp: 28.1.6 (/opt/ros/jazzy/share/rclcpp/cmake)
+[0.835s] -- Found rmw_implementation_cmake: 7.3.1 (/opt/ros/jazzy/share/rmw_implementation_cmake/cmake)
+[0.837s] -- Found rmw_fastrtps_cpp: 8.4.1 (/opt/ros/jazzy/share/rmw_fastrtps_cpp/cmake)
+[1.367s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[2.206s] -- Configuring done (1.9s)
+[2.331s] -- Generating done (0.0s)
+[2.364s] -- Build files have been written to: /home/osten/Drone/build/test
+[2.521s] [ 25%] [32mBuilding CXX object CMakeFiles/test_subscriber.dir/src/test_subscriber.cpp.o[0m
+[2.522s] [ 50%] [32mBuilding CXX object CMakeFiles/test_publisher.dir/src/test_publisher.cpp.o[0m
+[6.249s] [ 75%] [32m[1mLinking CXX executable test_subscriber[0m
+[6.315s] [100%] [32m[1mLinking CXX executable test_publisher[0m
+[6.652s] [100%] Built target test_subscriber
+[6.672s] [100%] Built target test_publisher
+[6.690s] Invoked command in '/home/osten/Drone/build/test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --build /home/osten/Drone/build/test -- -j20 -l20
+[6.691s] Invoking command in '/home/osten/Drone/build/test': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/osten/Drone/build/test
+[6.699s] -- Install configuration: ""
+[6.700s] -- Installing: /home/osten/Drone/install/test/lib/test/test_subscriber
+[6.701s] -- Set non-toolchain portion of runtime path of "/home/osten/Drone/install/test/lib/test/test_subscriber" to ""
+[6.701s] -- Installing: /home/osten/Drone/install/test/lib/test/test_publisher
+[6.701s] -- Set non-toolchain portion of runtime path of "/home/osten/Drone/install/test/lib/test/test_publisher" to ""
+[6.701s] -- Installing: /home/osten/Drone/install/test/share/test//launch
+[6.701s] -- Installing: /home/osten/Drone/install/test/share/test//launch/test.launch.py
+[6.701s] -- Installing: /home/osten/Drone/install/test/share/ament_index/resource_index/package_run_dependencies/test
+[6.701s] -- Installing: /home/osten/Drone/install/test/share/ament_index/resource_index/parent_prefix_path/test
+[6.702s] -- Installing: /home/osten/Drone/install/test/share/test/environment/ament_prefix_path.sh
+[6.702s] -- Installing: /home/osten/Drone/install/test/share/test/environment/ament_prefix_path.dsv
+[6.702s] -- Installing: /home/osten/Drone/install/test/share/test/environment/path.sh
+[6.703s] -- Installing: /home/osten/Drone/install/test/share/test/environment/path.dsv
+[6.703s] -- Installing: /home/osten/Drone/install/test/share/test/local_setup.bash
+[6.703s] -- Installing: /home/osten/Drone/install/test/share/test/local_setup.sh
+[6.703s] -- Installing: /home/osten/Drone/install/test/share/test/local_setup.zsh
+[6.703s] -- Installing: /home/osten/Drone/install/test/share/test/local_setup.dsv
+[6.703s] -- Installing: /home/osten/Drone/install/test/share/test/package.dsv
+[6.704s] -- Installing: /home/osten/Drone/install/test/share/ament_index/resource_index/packages/test
+[6.704s] -- Installing: /home/osten/Drone/install/test/share/test/cmake/testConfig.cmake
+[6.704s] -- Installing: /home/osten/Drone/install/test/share/test/cmake/testConfig-version.cmake
+[6.704s] -- Installing: /home/osten/Drone/install/test/share/test/package.xml
+[6.707s] Invoked command in '/home/osten/Drone/build/test' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com /usr/bin/cmake --install /home/osten/Drone/build/test

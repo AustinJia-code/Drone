@@ -1,0 +1,41 @@
+[0.672s] Invoking command in '/home/osten/Drone/build/system_launch': AMENT_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/osten/Drone/src/system_launch -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/system_launch
+[0.975s] -- The C compiler identification is GNU 13.3.0
+[2.771s] -- The CXX compiler identification is GNU 13.3.0
+[4.550s] -- Detecting C compiler ABI info
+[5.158s] -- Detecting C compiler ABI info - done
+[5.168s] -- Check for working C compiler: /usr/bin/cc - skipped
+[5.169s] -- Detecting C compile features
+[5.169s] -- Detecting C compile features - done
+[5.417s] -- Detecting CXX compiler ABI info
+[6.029s] -- Detecting CXX compiler ABI info - done
+[6.043s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[6.043s] -- Detecting CXX compile features
+[6.044s] -- Detecting CXX compile features - done
+[6.046s] -- Found ament_cmake: 2.5.3 (/opt/ros/jazzy/share/ament_cmake/cmake)
+[6.240s] -- Found Python3: /usr/bin/python3 (found version "3.12.3") found components: Interpreter 
+[6.496s] -- Configuring done (5.8s)
+[6.499s] -- Generating done (0.0s)
+[6.501s] -- Build files have been written to: /home/osten/Drone/build/system_launch
+[6.508s] Invoked command in '/home/osten/Drone/build/system_launch' returned '0': AMENT_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake /home/osten/Drone/src/system_launch -DCMAKE_INSTALL_PREFIX=/home/osten/Drone/install/system_launch
+[6.509s] Invoking command in '/home/osten/Drone/build/system_launch': AMENT_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/osten/Drone/build/system_launch -- -j20 -l20
+[6.547s] Invoked command in '/home/osten/Drone/build/system_launch' returned '0': AMENT_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --build /home/osten/Drone/build/system_launch -- -j20 -l20
+[6.548s] Invoking command in '/home/osten/Drone/build/system_launch': AMENT_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/osten/Drone/build/system_launch
+[6.554s] -- Install configuration: ""
+[6.554s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/launch
+[6.555s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/launch/main.launch.py
+[6.556s] -- Installing: /home/osten/Drone/install/system_launch/share/ament_index/resource_index/package_run_dependencies/system_launch
+[6.557s] -- Installing: /home/osten/Drone/install/system_launch/share/ament_index/resource_index/parent_prefix_path/system_launch
+[6.558s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/environment/ament_prefix_path.sh
+[6.558s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/environment/ament_prefix_path.dsv
+[6.558s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/environment/path.sh
+[6.559s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/environment/path.dsv
+[6.559s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/local_setup.bash
+[6.559s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/local_setup.sh
+[6.560s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/local_setup.zsh
+[6.560s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/local_setup.dsv
+[6.560s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/package.dsv
+[6.560s] -- Installing: /home/osten/Drone/install/system_launch/share/ament_index/resource_index/packages/system_launch
+[6.560s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/cmake/system_launchConfig.cmake
+[6.560s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/cmake/system_launchConfig-version.cmake
+[6.560s] -- Installing: /home/osten/Drone/install/system_launch/share/system_launch/package.xml
+[6.562s] Invoked command in '/home/osten/Drone/build/system_launch' returned '0': AMENT_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/osten/Drone/install/sensor:/home/osten/Drone/install/control:/home/osten/Drone/install/px4_msgs:/opt/ros/jazzy/opt/sdformat_vendor:/opt/ros/jazzy/opt/gz_math_vendor:/opt/ros/jazzy/opt/gz_utils_vendor:/opt/ros/jazzy/opt/gz_tools_vendor:/opt/ros/jazzy/opt/gz_cmake_vendor:/opt/ros/jazzy DEBUGINFOD_URLS=https://debuginfod.ubuntu.com LD_LIBRARY_PATH=/home/osten/Drone/install/px4_msgs/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/osten/Drone/install/px4_msgs/lib/python3.12/site-packages:${PYTHONPATH} /usr/bin/cmake --install /home/osten/Drone/build/system_launch

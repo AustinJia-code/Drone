@@ -6,7 +6,7 @@ Autonomous object-tracking/following drone
 **Topics:** Neural Nets, CV, Sensor Fusion, Path Planning, Controls
 
 ### Resources
-See docs folder for info
+See .docs/ for info
 
 **External resources:**
 
