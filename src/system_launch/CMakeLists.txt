@@ -5,9 +5,7 @@ project (system_launch)
 find_package (ament_cmake REQUIRED)
 
 #*********************************** INSTALL **********************************#
-install(DIRECTORY launch
-  DESTINATION share/${PROJECT_NAME}
-)
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
 
 #************************************ DONE ************************************#
 ament_package ()

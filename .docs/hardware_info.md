@@ -36,4 +36,4 @@ Assuming 5000mAh LiPo, 0.8 efficiency:
 (5,000 * 0.8) / (45,000) * 60 = ~5:20min
 
 # Wiring
-<img src="../assets/DroneWiring.svg" width="1000">
+<img src="../.assets/DroneWiring.svg" width="1000">

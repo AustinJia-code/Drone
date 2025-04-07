@@ -16,10 +16,15 @@ find_package (rclcpp REQUIRED)
 find_package (sensor_msgs REQUIRED)
 
 #******************************** SET UP TARGETS ******************************#
-# Sensor node
-add_executable (sensor_node src/sensor_node.cpp)
-ament_target_dependencies (sensor_node rclcpp px4_msgs)
-install (TARGETS sensor_node DESTINATION lib/${PROJECT_NAME})
+# IMU node
+add_executable (imu_listener src/imu_listener.cpp)
+ament_target_dependencies (imu_listener rclcpp px4_msgs)
+install (TARGETS imu_listener DESTINATION lib/${PROJECT_NAME})
+
+# GPs node
+add_executable (gps_listener src/gps_listener.cpp)
+ament_target_dependencies (gps_listener rclcpp px4_msgs)
+install (TARGETS gps_listener DESTINATION lib/${PROJECT_NAME})
 
 #*********************************** INSTALL **********************************#
 # Export information to downstream packages

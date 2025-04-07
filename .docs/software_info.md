@@ -7,7 +7,7 @@
 3. launch!
      - ros2 launch sensor sensor.launch.py
      - ros2 launch control control.launch.py
-     - ros2 launch system_launch system.launch.py
+     - ros2 launch system_launch main.launch.py
      - ros2 launch test test.launch.py
 
 ## Setup

@@ -7,19 +7,27 @@ from launch_ros.actions import Node
 from launch.actions import ExecuteProcess
 
 def generate_launch_description():
-  return LaunchDescription([
+  return LaunchDescription ([
     # Start the PX4 micrortps_agent
-    ExecuteProcess(
+    ExecuteProcess (
       cmd=['micrortps_agent', '-t', 'UDP', '-p', '2020'],
       shell=True,
       output='screen'
     ),
 
-    # Sensor Node
+    # IMU Node
+    Node (
+      package='sensor',
+      executable='imu_listener',
+      name='imu_listener',
+      output='screen'
+    ),
+
+    # GPS Node
     Node(
       package='sensor',
-      executable='sensor_node',
-      name='sensor_node',
+      executable='gps_listener',
+      name='gps_listener',
       output='screen'
     )
   ])
