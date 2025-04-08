@@ -17,14 +17,14 @@ find_package (sensor_msgs REQUIRED)
 
 #******************************** SET UP TARGETS ******************************#
 # IMU node
-add_executable (imu_listener src/imu_listener.cpp)
-ament_target_dependencies (imu_listener rclcpp px4_msgs)
-install (TARGETS imu_listener DESTINATION lib/${PROJECT_NAME})
+add_executable (imu_bridge src/imu_bridge.cpp)
+ament_target_dependencies (imu_bridge rclcpp px4_msgs)
+install (TARGETS imu_bridge DESTINATION lib/${PROJECT_NAME})
 
 # GPs node
-add_executable (gps_listener src/gps_listener.cpp)
-ament_target_dependencies (gps_listener rclcpp px4_msgs)
-install (TARGETS gps_listener DESTINATION lib/${PROJECT_NAME})
+add_executable (gps_bridge src/gps_bridge.cpp)
+ament_target_dependencies (gps_bridge rclcpp px4_msgs)
+install (TARGETS gps_bridge DESTINATION lib/${PROJECT_NAME})
 
 #*********************************** INSTALL **********************************#
 # Export information to downstream packages

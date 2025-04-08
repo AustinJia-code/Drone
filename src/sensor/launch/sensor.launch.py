@@ -18,16 +18,16 @@ def generate_launch_description():
     # IMU Node
     Node (
       package='sensor',
-      executable='imu_listener',
-      name='imu_listener',
+      executable='imu_bridge',
+      name='imu_bridge',
       output='screen'
     ),
 
     # GPS Node
     Node(
       package='sensor',
-      executable='gps_listener',
-      name='gps_listener',
+      executable='gps_bridge',
+      name='gps_bridge',
       output='screen'
     )
   ])

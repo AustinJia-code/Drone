@@ -1,3 +1,35 @@
+## Setup
+1. Configure Pixhawk with QGroundControl
+2. Boot RPi5 with Ubuntu 24.04.2 , 64 bit
+    - Check that ```uname -m``` returns ```aarch64```
+3. Set up Ubuntu 22.04.5 ROS Docker image:
+    ```
+    sudo apt update
+    sudo apt install docker.io -y
+    sudo usermod -aG docker $USER
+    docker pull arm64v8/ros:humble
+    ```
+4. Open config: 
+    ```
+    sudo nano /boot/firmware/config.txt
+    ```
+5. Enable UART, disable bluetooth:
+    ```
+    enable_uart=1
+    dtoverlay=disable-bt
+    ```
+6. Reboot: ```sudo reboot```
+7. Check that ```ls -l /dev/serial0``` points to ```/dev/ttyAMA0```
+8. Verify wiring between RPi5 and Pixhawk
+9. Run docker w/ access to Pixhawk and Gamepad receiver: 
+    ```
+    docker run -it \
+    --device=/dev/serial0 \
+    --device=/dev/input/js0 \
+    arm64v8/ros:humble \
+    bash
+    ```
+
 ## Execution
 1. cd src
 2. git clone https://github.com/PX4/px4_msgs.git
@@ -9,12 +41,6 @@
      - ros2 launch control control.launch.py
      - ros2 launch system_launch main.launch.py
      - ros2 launch test test.launch.py
-
-## Setup
-1. Install PX4 on Pixhawk
-2. Install Ubuntu 22.04.5 Jammy Jellyfish on RPi5 
-     - Set up SSH
-3. Follow: https://docs.px4.io/main/en/ros2/offboard_control.html 
 
 ## Software
 | Software | Purpose |
