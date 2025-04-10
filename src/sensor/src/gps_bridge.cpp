@@ -1,6 +1,6 @@
 /**
  * @file gps_bridge.cpp
- * @brief ROS node for drone sensors
+ * @brief ROS node for Pixhawk GPS
  * @cite https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/vehicle_gps_position_listener.cpp
  */
 

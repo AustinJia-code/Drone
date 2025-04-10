@@ -21,10 +21,15 @@ add_executable (imu_bridge src/imu_bridge.cpp)
 ament_target_dependencies (imu_bridge rclcpp px4_msgs)
 install (TARGETS imu_bridge DESTINATION lib/${PROJECT_NAME})
 
-# GPs node
+# GPS node
 add_executable (gps_bridge src/gps_bridge.cpp)
 ament_target_dependencies (gps_bridge rclcpp px4_msgs)
 install (TARGETS gps_bridge DESTINATION lib/${PROJECT_NAME})
+
+# Camera node
+add_executable (camera_bridge src/camera_bridge.cpp)
+ament_target_dependencies (camera_bridge rclcpp)
+install (TARGETS camera_bridge DESTINATION lib/${PROJECT_NAME})
 
 #*********************************** INSTALL **********************************#
 # Export information to downstream packages

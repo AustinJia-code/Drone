@@ -1,6 +1,6 @@
 /**
  * @file sensor_node.cpp
- * @brief ROS node for drone sensors
+ * @brief ROS node for Pixhawk IMU
  * @cite https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/sensor_combined_listener.cpp
  */
 
