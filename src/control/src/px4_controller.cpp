@@ -1,0 +1,127 @@
+/**
+ * @file px4_controller.cpp
+ * @brief PX4 controller interface
+ */
+
+#include <px4_msgs/msg/offboard_control_mode.hpp>
+#include <px4_msgs/msg/trajectory_setpoint.hpp>
+#include <px4_msgs/msg/vehicle_command.hpp>
+#include <px4_msgs/msg/vehicle_control_mode.hpp>
+#include <rclcpp/rclcpp.hpp>
+#include <stdint.h>
+#include <px4_controller.hpp>
+
+#include <chrono>
+#include <iostream>
+
+using namespace std::chrono;
+using namespace std::chrono_literals;
+using namespace px4_msgs::msg;
+
+/**
+ * Constructor
+ */
+PX4Controller::PX4Controller (rclcpp::Node *node) : node_ (node)
+{
+  vehicle_cmd_pub_ = node_->create_publisher<VehicleCommand>
+                              ("/fmu/in/vehicle_command", 10);
+  offboard_mode_pub_ = node_->create_publisher<OffboardControlMode>
+                                ("/fmu/in/offboard_control_mode", 10);
+  traj_setpoint_pub_ = node_->create_publisher<TrajectorySetpoint>
+                                ("/fmu/in/trajectory_setpoint", 10);
+}
+
+/**
+ * General command publisher
+ */
+void PX4Controller::publish_vehicle_command (uint16_t command, float param1, 
+                                             float param2)
+{
+  VehicleCommand cmd;
+  cmd.timestamp = node_->get_clock ()
+                       ->now ()
+                        .nanoseconds () 
+                       / 1000;
+  cmd.param1 = param1;
+  cmd.param2 = param2;
+  cmd.command = command;
+  cmd.target_system = 1;
+  cmd.target_component = 1;
+  cmd.source_system = 1;
+  cmd.source_component = 1;
+  cmd.from_external = true;
+  vehicle_cmd_pub_->publish (cmd);
+}
+
+/**
+ * Arms drone
+ */
+void PX4Controller::arm ()
+{
+  publish_vehicle_command (VehicleCommand::VEHICLE_CMD_COMPONENT_ARM_DISARM, 1.0f);
+}
+
+/**
+ * Disarms drone
+ */
+void PX4Controller::disarm ()
+{
+  publish_vehicle_command (VehicleCommand::VEHICLE_CMD_COMPONENT_ARM_DISARM, 0.0f);
+}
+
+/**
+ * Sets drone to offboard control mode
+ */
+void PX4Controller::set_offboard_mode ()
+{
+  publish_vehicle_command (VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1.0f, 6.0f);
+}
+
+/**
+ * Set control mode
+ */
+void PX4Controller::publish_offboard_control_mode (ControlMode mode)
+{
+  // Create offboard control message
+  OffboardControlMode msg {};
+  msg.timestamp = node_->get_clock ()
+                       ->now()
+                        .nanoseconds()
+                       / 1000;
+  msg.position = mode == PX4Controller::ControlMode::POS;
+  msg.velocity = mode == PX4Controller::ControlMode::VEL;
+  offboard_mode_pub_->publish (msg);
+}
+
+/**
+ * Set a global velocity setpoint
+ */
+void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz, 
+                                               float yaw_rate)
+{
+  // Create trajectory message
+  TrajectorySetpoint msg {};
+  msg.timestamp = node_->get_clock ()
+                       ->now()
+                        .nanoseconds()
+                       / 1000;
+  msg.velocity = {vx, vy, vz};
+  msg.yawspeed = yaw_rate;
+  traj_setpoint_pub_->publish(msg);
+}
+
+/**
+ * Set a position setpoint
+ */
+void PX4Controller::publish_position_setpoint (float x, float y, float z, float yaw)
+{
+  // Create trajectory message
+  TrajectorySetpoint msg{};
+  msg.timestamp = node_->get_clock()
+                       ->now()
+                        .nanoseconds()
+                       / 1000;
+  msg.position = {x, y, z};
+  msg.yaw = yaw;
+  traj_setpoint_pub_->publish (msg);
+}

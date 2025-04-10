@@ -1,17 +1,46 @@
 /**
  * @file control_node.cpp
  * @brief ROS node for drone control
- * @cite https://github.com/PX4/px4_ros_com/blob/main/src/examples/offboard/offboard_control.cpp
  */
 
- #include "rclcpp/rclcpp.hpp"
+#include "rclcpp/rclcpp.hpp"
+#include "px4_controller.hpp"
 
-int main(int argc, char * argv[])
+using namespace std::chrono_literals;
+
+class ControlNode : public rclcpp::Node
 {
-    rclcpp::init(argc, argv);
-    auto node = std::make_shared<rclcpp::Node>("control_node");
-    RCLCPP_INFO(node->get_logger(), "Control node running");
-    rclcpp::spin(node);
-    rclcpp::shutdown();
-    return 0;
+private:
+  std::shared_ptr<PX4Controller> controller_;
+  rclcpp::TimerBase::SharedPtr timer_;
+  int counter_ = 0;
+
+public:
+  ControlNode() : Node ("control_node")
+  {
+    controller_ = std::make_shared<PX4Controller> (this);
+
+    timer_ = this->create_wall_timer (100ms, [this] ()
+    {
+      if (counter_ == 10) {
+        controller_->set_offboard_mode();
+        controller_->arm();
+      }
+
+      // Set velocity control
+      controller_->publish_offboard_control_mode (PX4Controller::ControlMode::VEL);
+      controller_->publish_velocity_setpoint (1.0, 0.0, 0.0, -0.1);
+
+      if (counter_ < 11)
+        counter_++;
+    });
+  }
+};
+
+int main(int argc, char* argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<ControlNode>());
+  rclcpp::shutdown();
+  return 0;
 }

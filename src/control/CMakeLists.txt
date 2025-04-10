@@ -15,20 +15,43 @@ find_package (px4_msgs REQUIRED)
 find_package (rclcpp REQUIRED)
 find_package (sensor_msgs REQUIRED)
 
-#******************************** SET UP TARGETS ******************************#
+#******************************** INCLUDE PATHS *******************************#
+include_directories (include)
+
+#******************************** LIBRARY TARGET ******************************#
+add_library (px4_controller src/px4_controller.cpp)
+
+ament_target_dependencies (px4_controller rclcpp px4_msgs)
+
+target_include_directories (px4_controller PUBLIC
+                            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+                            $<INSTALL_INTERFACE:include>)
+
+#********************************** EXECUTABLES *******************************#
 # Control node
 add_executable (control_node src/control_node.cpp)
 ament_target_dependencies (control_node rclcpp px4_msgs)
 install (TARGETS control_node DESTINATION lib/${PROJECT_NAME})
 
 #*********************************** INSTALL **********************************#
+install (TARGETS
+         px4_controller
+         control_node
+         DESTINATION lib/${PROJECT_NAME})
+
+target_link_libraries(control_node px4_controller)
+
+# Install header files
+install (DIRECTORY include/
+         DESTINATION include/)
+
+install (DIRECTORY launch
+         DESTINATION share/${PROJECT_NAME}/)
+
 # Export information to downstream packages
 ament_export_dependencies (ament_cmake rclcpp rosidl_default_runtime 
                            eigen3_cmake_module Eigen3 px4_msgs geometry_msgs 
                            sensor_msgs)
-
-# Install launch files.
-install (DIRECTORY launch DESTINATION share/${PROJECT_NAME}/)
 
 #************************************ DONE ************************************#
 ament_package ()
