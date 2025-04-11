@@ -2,33 +2,19 @@
 1. Configure Pixhawk with QGroundControl
 2. Boot RPi5 with Ubuntu 24.04.2 , 64 bit
     - Check that ```uname -m``` returns ```aarch64```
-3. Set up Ubuntu 22.04.5 ROS Docker image:
-    ```
-    sudo apt update
-    sudo apt install docker.io -y
-    sudo usermod -aG docker $USER
-    docker pull arm64v8/ros:humble
-    ```
-4. Open config: 
+3. Open config: 
     ```
     sudo nano /boot/firmware/config.txt
     ```
-5. Enable UART, disable bluetooth:
+4. Enable UART, disable bluetooth:
     ```
     enable_uart=1
     dtoverlay=disable-bt
     ```
-6. Reboot: ```sudo reboot```
+5. Reboot: ```sudo reboot```
+6. Install ROS2: https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html
 7. Check that ```ls -l /dev/serial0``` points to ```/dev/ttyAMA0```
 8. Verify wiring between RPi5 and Pixhawk
-9. Run docker w/ access to Pixhawk and Gamepad receiver: 
-    ```
-    docker run -it \
-    --device=/dev/serial0 \
-    --device=/dev/input/js0 \
-    arm64v8/ros:humble \
-    bash
-    ```
 
 ## Execution
 1. cd src
