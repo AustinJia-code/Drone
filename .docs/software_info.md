@@ -13,10 +13,11 @@
 
 ## Setup
 1. Configure Pixhawk with QGroundControl
-    ```
-    make px4_fmu-v6c_default_rtps
-    make px4_fmu-v6c_default_rtps upload
-    ```
+    |Parameter|	Value|	Description|
+    |---|---|---|
+    |MAV_1_CONFIG|	0	|Disable MAVLink on TELEM2|
+    |SER_TEL2_BAUD|	921600|	Set baud rate to match RPi|
+    |UXRCE_DDS_CFG|	telem2|	Use TELEM2 for the RTPS client|
 2. Boot RPi5 with Ubuntu 24.04.2 , 64 bit
     - 22.xx.x is technically better supported by the libraries... but RPi5 doesn't like it!
     - I used the Desktop version due to networking issues with server
