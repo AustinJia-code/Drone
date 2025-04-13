@@ -20,8 +20,10 @@ public:
   {
     controller_ = std::make_shared<PX4Controller> (this);
 
+    // Call every 100ms
     timer_ = this->create_wall_timer (100ms, [this] ()
     {
+      // Set offboard mode once 10 setpoints are created
       if (counter_ == 10) {
         controller_->set_offboard_mode();
         controller_->arm();

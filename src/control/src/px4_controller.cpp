@@ -23,10 +23,13 @@ using namespace px4_msgs::msg;
  */
 PX4Controller::PX4Controller (rclcpp::Node *node) : node_ (node)
 {
+  // Handles vehicle commands (arm, disarm, etc.)
   vehicle_cmd_pub_ = node_->create_publisher<VehicleCommand>
                               ("/fmu/in/vehicle_command", 10);
+  // Handles switching to offboard mode
   offboard_mode_pub_ = node_->create_publisher<OffboardControlMode>
                                 ("/fmu/in/offboard_control_mode", 10);
+  // Handles setpoints (position, trajectory, etc.)
   traj_setpoint_pub_ = node_->create_publisher<TrajectorySetpoint>
                                 ("/fmu/in/trajectory_setpoint", 10);
 }
@@ -113,7 +116,8 @@ void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz,
 /**
  * Set a position setpoint
  */
-void PX4Controller::publish_position_setpoint (float x, float y, float z, float yaw)
+void PX4Controller::publish_position_setpoint (float x, float y, float z, 
+                                               float yaw)
 {
   // Create trajectory message
   TrajectorySetpoint msg{};
