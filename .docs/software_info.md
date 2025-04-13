@@ -1,3 +1,16 @@
+## Software
+| Software   |Version           | Purpose             |
+|------------|------------------|---------------------|
+| Ubuntu     | 24.04.2, Desktop | Companion OS        |
+| PX4        | 1.14             | Flight controller   |
+
+| Library       | Purpose                 | Link                                                                      |
+|---------------|-------------------------|---------------------------------------------------------------------------|
+| ROS 2 "Jazzy" | Middleware              | (Docs)[https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html] |
+| XRCE-DDS      | Companion comm. agent   | (GitHub)[https://github.com/eProsima/Micro-XRCE-DDS-Agent]                |
+| OpenCV        | Basic image processing  |
+| YOLO          | Object detection        |
+
 ## Setup
 1. Configure Pixhawk with QGroundControl
     ```
@@ -16,14 +29,13 @@
       source ~/.bashrc
       ```
 3. With only RPi5 plugged in, try following [Execution](#Execution) flow and install packages as necessary 
-    - Test basic pub/sub launcher: ```ros2 launch test test.launch.py```
+    - Test basic pub/sub launcher: ```ros2 launch test pubsub.launch.py```
 4. Install micrortps_agent:
     ```
     cd ~
     git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
     cd Micro-XRCE-DDS-Agent
     git submodule update --init --recursive
-
     mkdir build && cd build
     cmake ..
     make
@@ -48,24 +60,11 @@
 4. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 5. Set source:  ```echo "source ~/Projects/Drone/install/setup.bash" >> ~/.bashrc```
     - You may need to modify setup.bash path
-6. Source: source ~/.bashrc
+6. Source: ```source ~/.bashrc```
 7. launch!
      - ros2 launch sensor sensor.launch.py
      - ros2 launch control control.launch.py
      - ros2 launch system_launch main.launch.py
-     - ros2 launch test test.launch.py
-
-## Software
-| Software | Purpose |
-|----------|---------|
-| Ubuntu 24.04.2 | Operating system |
-| PX4 1.14       | Flight controller |
-
-| Library | Purpose |
-|---------|---------|
-| ROS 2 "Jazzy" | Middleware |
-| OpenCV | Basic image processing |
-| YOLO | Object detection |
 
 ## Design
 **Software Flow**
@@ -81,7 +80,7 @@
 10. Pixhawk sends control information to ESCs
 
 ## Misc
-Temp check (try to stay under 85c):
+RPi temp check (try to stay under 85c):
 ```
 awk '{print $1/1000 "°C"}' /sys/class/thermal/thermal_zone0/temp
 ```

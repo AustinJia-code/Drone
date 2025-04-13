@@ -5,10 +5,10 @@ control nodes
 from launch import LaunchDescription
 from launch_ros.actions import Node
 
-def generate_launch_description():
-  return LaunchDescription([
+def generate_launch_description ():
+  return LaunchDescription ([
     # Publisher Node
-    Node(
+    Node (
       package='test',
       executable='test_subscriber',
       name='test_subscriber',
@@ -16,7 +16,7 @@ def generate_launch_description():
     ),
 
     # Subscriber Node
-    Node(
+    Node (
       package='test',
       executable='test_publisher',
       name='test_publisher',
