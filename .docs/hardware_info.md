@@ -37,3 +37,11 @@ Assuming 5000mAh LiPo, 0.8 efficiency:
 
 # Wiring
 <img src="../.assets/DroneWiring.svg" width="1000">
+
+Specific wires:
+- Solder an XT60 12AWG male to TekkoF32
+- Solder 3.5mm Bullet 16AWG to TekkoF32 out pads
+- Solder an XT60 12AWG male to 5V5A BEC
+- Strip a Pixhawk TELEM wire, crimp/solder female DuPont to TX, RX, GND
+  - Cap unused wires
+- ??? DuPont female to 3.5mm Bullet 16AWG for Pixhawk-TekkoF32 ???
