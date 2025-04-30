@@ -6,8 +6,8 @@
 
 | Library       | Purpose                 | Link                                                                      |
 |---------------|-------------------------|---------------------------------------------------------------------------|
-| ROS 2 "Jazzy" | Middleware              | (Docs)[https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html] |
-| XRCE-DDS      | Companion comm. agent   | (GitHub)[https://github.com/eProsima/Micro-XRCE-DDS-Agent]                |
+| ROS 2 "Jazzy" | Middleware              | [Docs](https://docs.ros.org/en/jazzy/Releases/Release-Jazzy-Jalisco.html) |
+| XRCE-DDS      | Companion comm. agent   | [GitHub](https://github.com/eProsima/Micro-XRCE-DDS-Agent)                |
 | OpenCV        | Basic image processing  |
 | YOLO          | Object detection        |
 
