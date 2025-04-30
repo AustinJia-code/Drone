@@ -13,17 +13,19 @@
 
 ## Setup
 1. Configure Pixhawk with QGroundControl
+
   |Parameter      |	Value   |	Description                     |
-  |---            |---      |---                              |
+  |-----          |-----    |-----                            |
   | MAV_1_CONFIG  |	0	      | Disable MAVLink on TELEM2       |
   | SER_TEL2_BAUD |	921600  |	Set baud rate to match RPi      |
   | UXRCE_DDS_CFG |	telem2  |	Use TELEM2 for the RTPS client  |
+
 2. Boot RPi5 with Ubuntu 24.04.2 , 64 bit
     - 22.xx.x is technically better supported by the libraries... but RPi5 doesn't like it!
     - I used the Desktop version due to networking issues with server
 2. Install ROS2 Jazzy Jalisco: https://docs.ros.org/en/jazzy/Installation/Alternatives/Ubuntu-Development-Setup.html
     - Jazzy technically isn't recommended by PX4 (Humble supported), but compatability :)
-    - Follow to "Build ROS 2", then: 
+    - Follow, then stop when you reach "Build ROS 2", then: 
       ```
       sudo apt update && sudo apt install ros-jazzy-desktop
       echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
@@ -31,7 +33,7 @@
       ```
 3. With only RPi5 plugged in, try following [Execution](#Execution) flow and install packages as necessary 
     - Test basic pub/sub launcher: ```ros2 launch test pubsub.launch.py```
-4. Install micrortps_agent:
+4. Install micrortps_agent for flight computer communication:
     ```
     cd ..
     git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
@@ -42,19 +44,16 @@
     make
     ```
 5. Test micrortps: ```./MicroXRCEAgent serial --dev /dev/ttyUSB0 -b 921600```
-    - if nothing connected, should say something like "1 port not found", working!
+    - if nothing is connected, it should say something like "1 port not found", working!
 6. Open config: ```sudo nano /boot/firmware/config.txt```
-7. Enable UART:
-    ```
-    enable_uart=1
-    ```
+7. Enable UART: ```enable_uart=1```
 8. Reboot: ```sudo reboot```
 9. Check that ```ls -l /dev/serial0``` points to ```/dev/ttyAMA0```
 10. Verify wiring between RPi5 and Pixhawk
 
 ## Execution
 Do once:
-1. Set source:  ```echo "source ~/Projects/Drone/install/setup.bash" >> ~/.bashrc```
+1. Set source:  ```echo "source ~/Drone/install/setup.bash" >> ~/.bashrc```
   - You may need to modify setup.bash path
 2. cd src
 3. git clone https://github.com/PX4/px4_msgs.git
@@ -67,19 +66,6 @@ Build and Run:
      - ros2 launch sensor sensor.launch.py
      - ros2 launch control control.launch.py
      - ros2 launch system_launch main.launch.py
-
-## Design
-**Software Flow**
-1. RPi5 processes image from camera using OpenCV
-2. RPi5 sends data to Coprocessor
-3. Coprocessor processes data with YOLO
-4. Coprocessor sends data to RPi5
-5. RPi5 uses recognitions and camera depth info for relative position to target
-6. Pixhawk sends IMU and GPS information to RPi5
-7. RPi5 uses IMU and GPS for global position estimation
-8. RPi5 decides a path/direction and generates commands to follow it
-9. RPi5 sends commands to Pixhawk using MAVRos
-10. Pixhawk sends control information to ESCs
 
 ## Misc
 RPi temp check (try to stay under 85c):

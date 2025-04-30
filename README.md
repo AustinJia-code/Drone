@@ -1,14 +1,9 @@
-# Autonomous Object-Tracking/Following Drone
+# Autonomous Drone
 
-## Goal
-Autonomous object-tracking/following drone
+### Documentation
+See .docs/
 
-**Topics:** Neural Nets, CV, Sensor Fusion, Path Planning, Controls
-
-### Resources
-See .docs/ for info
-
-**External resources used:**
+### External Resources
 ROS + PX4
   - https://docs.px4.io/main/en/ros2/
 
