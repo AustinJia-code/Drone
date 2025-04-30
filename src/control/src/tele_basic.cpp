@@ -20,7 +20,7 @@ TeleBasic::TeleBasic (std::shared_ptr<PX4Controller> controller,
 bool TeleBasic::loop ()
 {
   // Check for disconnect
-  if ((node_->now () - last_joy_time_).seconds () > 1.0)
+  if ((clock_.now () - last_joy_time_).seconds () > 1.0)
     return false;
 
   // Simple velocity control from joysticks
@@ -42,6 +42,7 @@ void TeleBasic::joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg)
   if (msg->axes.size() > 3)
   {
     joysticks_ = {msg->axes [0], msg->axes [1], msg->axes [2], msg->axes [3]};
-    last_joy_time_ = node_->now ();
+    
+    last_joy_time_ = clock_.now ();
   }
 }

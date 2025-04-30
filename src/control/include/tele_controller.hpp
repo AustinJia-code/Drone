@@ -28,6 +28,7 @@ protected:
   std::shared_ptr<PX4Controller> controller_;
   std::shared_ptr<rclcpp::Node> node_;
 
+  rclcpp::Clock clock_ {RCL_SYSTEM_TIME};
   rclcpp::Time last_joy_time_;
   rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
 };

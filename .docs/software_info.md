@@ -30,6 +30,7 @@
       sudo apt update && sudo apt install ros-jazzy-desktop
       echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
       source ~/.bashrc
+      sudo apt install ros-jazzy-robot-localization
       ```
 3. With only RPi5 plugged in, try following [Execution](#Execution) flow and install packages as necessary 
     - Test basic pub/sub launcher: ```ros2 launch test pubsub.launch.py```
@@ -63,7 +64,7 @@ Build and Run:
 1. Source: ```source ~/.bashrc```
 2. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 3. launch!
-     - ros2 launch sensor sensor.launch.py
+     - ros2 launch localization localization.launch.py
      - ros2 launch control control.launch.py
      - ros2 launch system_launch main.launch.py
 

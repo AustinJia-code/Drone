@@ -24,8 +24,6 @@ public:
   {
     // Initialization
     controller_ = std::make_shared<PX4Controller> (this);
-    tele_ = std::make_unique<TeleBasic> (controller_, shared_from_this ());
-    auto_ = std::make_unique<AutoRise> (controller_, shared_from_this ());
     joy_sub_ = this->create_subscription<sensor_msgs::msg::Joy>
     (
       "/joy", 10,
@@ -34,37 +32,16 @@ public:
     mode_ = DriveMode::INIT;
     
     // Control loop - called every 100ms
-    timer_ = this->create_wall_timer (100ms, [this] ()
-    {
-      switch (mode_)
-      {
-        // Build initial setpoints
-        case (DriveMode::INIT):
-          // Go to tele on completion
-          if (build_setpoints ())
-            mode_ = DriveMode::TELE;
-          break;
+    timer_ = this->create_wall_timer (100ms, [this] () { loop (); });
+  }
 
-        // Teleop control loop
-        case (DriveMode::TELE):
-          if (!tele_->loop ())
-            mode_ = DriveMode::FAIL;
-          break;
-
-        // Auto control loop
-        case (DriveMode::AUTO):
-          // Go to tele on completion or failure
-          if (!auto_->loop ())
-            mode_ = DriveMode::TELE;
-          break;
-
-        // Failure case
-        case (DriveMode::FAIL):
-        default:
-          return_home ();
-          break;
-      }
-    });
+  /**
+   * Init controllers after node has been built
+   */
+  void initialize ()
+  {
+    tele_ = std::make_unique<TeleBasic> (controller_, shared_from_this ());
+    auto_ = std::make_unique<AutoRise> (controller_, shared_from_this ());
   }
 
 private:
@@ -114,6 +91,41 @@ private:
   void return_home () { controller_->publish_position_setpoint (0, 0, 0, 0); }
 
   /**
+   * State machine
+   */
+  void loop ()
+  {
+    switch (mode_)
+    {
+      // Build initial setpoints
+      case (DriveMode::INIT):
+        // Go to tele on completion
+        if (build_setpoints ())
+          mode_ = DriveMode::TELE;
+        break;
+
+      // Teleop control loop
+      case (DriveMode::TELE):
+        if (!tele_->loop ())
+          mode_ = DriveMode::FAIL;
+        break;
+
+      // Auto control loop
+      case (DriveMode::AUTO):
+        // Go to tele on completion or failure
+        if (!auto_->loop ())
+          mode_ = DriveMode::TELE;
+        break;
+
+      // Failure case
+      case (DriveMode::FAIL):
+      default:
+        return_home ();
+        break;
+    }
+  }
+
+  /**
    * Gamepad transitions
    */
   void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg)
@@ -146,7 +158,10 @@ private:
 int main (int argc, char* argv [])
 {
   rclcpp::init (argc, argv);
-  rclcpp::spin (std::make_shared<DriveNode> ());
+  auto node = std::make_shared<DriveNode>();
+  node->initialize();
+
+  rclcpp::spin (node);
 
   rclcpp::shutdown ();
   

@@ -1,14 +1,13 @@
-# @file navsat_config.yaml
-# @brief Transforms GPS lat/lon to cartesian meters.
+navsat_transform_node:
+  ros__parameters:
+    frequency: 10.0
+    delay: 0.0
 
-frequency: 10
-delay: 0.0
+    magnetic_declination_radians: 0.0
+    yaw_offset: 0.0
+    zero_altitude: false
+    broadcast_utm_transform: false
+    publish_filtered_gps: false
 
-magnetic_declination_radians: 0.0
-yaw_offset: 0.0
-zero_altitude: false
-broadcast_utm_transform: false
-publish_filtered_gps: false
-
-use_odometry_yaw: false
-use_local_cartesian: true
+    use_odometry_yaw: false
+    use_local_cartesian: true
