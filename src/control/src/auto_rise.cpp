@@ -10,14 +10,7 @@
  */
 AutoRise::AutoRise (std::shared_ptr<PX4Controller> controller,
                     std::shared_ptr<rclcpp::Node> node)
-  : AutoController (controller, node), run_time_ (10)
-{
-  joy_sub_ = node_->create_subscription<sensor_msgs::msg::Joy>
-  (
-    "/joy", 10,
-    std::bind (&AutoRise::joy_callback, this, std::placeholders::_1)
-  );
-}
+  : AutoController (controller, node), run_time_ (10) {}
 
 /**
  * Init

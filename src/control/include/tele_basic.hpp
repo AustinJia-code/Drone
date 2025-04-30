@@ -19,7 +19,6 @@ public:
 
   bool loop () override;
 
-protected:
   void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) override;
 
 private:

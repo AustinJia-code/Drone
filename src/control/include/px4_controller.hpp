@@ -5,6 +5,17 @@
 #include <px4_msgs/msg/offboard_control_mode.hpp>
 #include <px4_msgs/msg/trajectory_setpoint.hpp>
 
+/**
+ * Drive states
+ */
+enum class DriveMode
+{
+  INIT = -1,
+  AUTO = 0,
+  TELE = 1,
+  FAIL = 2
+};
+
 class PX4Controller
 {
 public:

@@ -12,14 +12,7 @@
  */
 TeleBasic::TeleBasic (std::shared_ptr<PX4Controller> controller,
                       std::shared_ptr<rclcpp::Node> node)
-  : TeleController (controller, node)
-{
-  joy_sub_ = node_->create_subscription<sensor_msgs::msg::Joy>
-  (
-    "/joy", 10,
-    std::bind (&TeleBasic::joy_callback, this, std::placeholders::_1)
-  );
-}
+  : TeleController (controller, node) {}
 
 /**
  * Tele loop

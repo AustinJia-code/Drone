@@ -15,17 +15,6 @@
 using namespace std::chrono_literals;
 
 /**
- * Drive states
- */
-enum class DriveMode
-{
-  INIT = -1,
-  AUTO = 0,
-  TELE = 1,
-  FAIL = 2
-};
-
-/**
  * DriveNode
  */
 class DriveNode : public rclcpp::Node
@@ -37,6 +26,11 @@ public:
     controller_ = std::make_shared<PX4Controller> (this);
     tele_ = std::make_unique<TeleBasic> (controller_, shared_from_this ());
     auto_ = std::make_unique<AutoRise> (controller_, shared_from_this ());
+    joy_sub_ = this->create_subscription<sensor_msgs::msg::Joy>
+    (
+      "/joy", 10,
+      std::bind (&DriveNode::joy_callback, this, std::placeholders::_1)
+    );
     mode_ = DriveMode::INIT;
     
     // Control loop - called every 100ms
@@ -78,6 +72,9 @@ private:
   std::shared_ptr<PX4Controller> controller_;
   std::unique_ptr<TeleController> tele_;
   std::unique_ptr<AutoController> auto_;
+
+  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
+
   rclcpp::TimerBase::SharedPtr timer_;
   int counter_ = 0;
 
@@ -115,6 +112,32 @@ private:
    * Failure handling
    */
   void return_home () { controller_->publish_position_setpoint (0, 0, 0, 0); }
+
+  /**
+   * Gamepad transitions
+   */
+  void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg)
+  {
+    // Check if 'A' pressed
+    if (msg->buttons.size () > 0 && msg->buttons [0] == 1 && mode_ != DriveMode::AUTO)
+    {
+      auto_->init ();
+      mode_ = DriveMode::AUTO;
+    }
+
+    // Pass joy input to active controller
+    switch (mode_)
+    {
+      case DriveMode::TELE: 
+        tele_->joy_callback (msg);
+        break;
+      case DriveMode::AUTO:
+        auto_->joy_callback (msg);
+        break;
+      default: 
+        break;
+    }
+  }
 };
 
 /**

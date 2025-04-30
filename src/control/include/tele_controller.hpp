@@ -22,12 +22,12 @@ public:
 
   virtual bool loop () = 0;
 
+  virtual void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) = 0;
+
 protected:
   std::shared_ptr<PX4Controller> controller_;
   std::shared_ptr<rclcpp::Node> node_;
 
   rclcpp::Time last_joy_time_;
   rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
-
-  virtual void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) = 0;
 };

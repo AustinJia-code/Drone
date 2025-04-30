@@ -24,12 +24,12 @@ public:
   virtual bool loop () = 0;
   virtual bool is_over () = 0;
 
+  virtual void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) = 0;
+
 protected:
   std::shared_ptr<PX4Controller> controller_;
   std::shared_ptr<rclcpp::Node> node_;
   bool is_over_ = false;
 
   rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
-
-  virtual void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) = 0;
 };
