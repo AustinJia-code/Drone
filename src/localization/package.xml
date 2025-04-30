@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package format="3">
-  <name>sensor</name>
+  <name>localization</name>
   <version>0.1.0</version>
-  <description>Sensor processing</description>
+  <description>Drone Localization</description>
 
   <maintainer email="austin.jia@utexas.edu">Austin Jia</maintainer>
   <license>MIT</license>
@@ -19,6 +19,7 @@
   <depend>nav_msgs</depend>
   <depend>tf2_geometry_msgs</depend>
   <depend>px4_ros_com</depend>
+  <depend>robot_localization</depend>
 
   <export>
     <build_type>ament_cmake</build_type>

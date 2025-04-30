@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.8)
-project (sensor)
+project (localization)
 
 if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options (-Wall -Wextra -Wpedantic)
@@ -17,19 +17,19 @@ find_package (sensor_msgs REQUIRED)
 
 #******************************** SET UP TARGETS ******************************#
 # IMU node
-add_executable (imu_bridge src/imu_bridge.cpp)
-ament_target_dependencies (imu_bridge rclcpp px4_msgs)
-install (TARGETS imu_bridge DESTINATION lib/${PROJECT_NAME})
+add_executable (imu_filter src/imu_filter.cpp)
+ament_target_dependencies (imu_filter rclcpp sensor_msgs px4_msgs)
+install (TARGETS imu_filter DESTINATION lib/${PROJECT_NAME})
 
 # GPS node
-add_executable (gps_bridge src/gps_bridge.cpp)
-ament_target_dependencies (gps_bridge rclcpp px4_msgs)
-install (TARGETS gps_bridge DESTINATION lib/${PROJECT_NAME})
+add_executable (gps_filter src/gps_filter.cpp)
+ament_target_dependencies (gps_filter rclcpp sensor_msgs geometry_msgs px4_msgs)
+install (TARGETS gps_filter DESTINATION lib/${PROJECT_NAME})
 
 # Camera node
-# add_executable (camera_bridge src/camera_bridge.cpp)
-# ament_target_dependencies (camera_bridge rclcpp)
-# install (TARGETS camera_bridge DESTINATION lib/${PROJECT_NAME})
+# add_executable (camera_listener src/camera_listener.cpp)
+# ament_target_dependencies (camera_listener rclcpp)
+# install (TARGETS camera_listener DESTINATION lib/${PROJECT_NAME})
 
 #*********************************** INSTALL **********************************#
 # Export information to downstream packages
