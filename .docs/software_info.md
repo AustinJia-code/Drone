@@ -60,8 +60,8 @@ Do once:
 4. cd ..
 
 Build and Run:
-1. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON  
-2. Source: ```source ~/.bashrc```
+1. Source: ```source ~/.bashrc```
+2. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 3. launch!
      - ros2 launch sensor sensor.launch.py
      - ros2 launch control control.launch.py

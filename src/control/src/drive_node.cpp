@@ -8,20 +8,11 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "px4_controller.hpp"
+#include "tele_basic.hpp"
+#include "auto_rise.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
 using namespace std::chrono_literals;
-
-/**
- * Joystick values
- */
-struct Joysticks
-{
-  float left_x;
-  float left_y;
-  float right_x;
-  float right_y;
-};
 
 /**
  * Drive states
@@ -44,12 +35,10 @@ public:
   {
     // Initialization
     controller_ = std::make_shared<PX4Controller> (this);
+    tele_ = std::make_unique<TeleBasic> (controller_, shared_from_this ());
+    auto_ = std::make_unique<AutoRise> (controller_, shared_from_this ());
     mode_ = DriveMode::INIT;
-    joy_sub_ = this->create_subscription<sensor_msgs::msg::Joy> (
-      "/joy", 10,
-      std::bind (&DriveNode::joy_callback, this, std::placeholders::_1)
-    );
-
+    
     // Control loop - called every 100ms
     timer_ = this->create_wall_timer (100ms, [this] ()
     {
@@ -57,14 +46,25 @@ public:
       {
         // Build initial setpoints
         case (DriveMode::INIT):
-          build_setpoints ();
+          // Go to tele on completion
+          if (build_setpoints ())
+            mode_ = DriveMode::TELE;
           break;
+
         // Teleop control loop
         case (DriveMode::TELE):
-          teleop ();
+          if (!tele_->loop ())
+            mode_ = DriveMode::FAIL;
           break;
+
+        // Auto control loop
         case (DriveMode::AUTO):
+          // Go to tele on completion or failure
+          if (!auto_->loop ())
+            mode_ = DriveMode::TELE;
           break;
+
+        // Failure case
         case (DriveMode::FAIL):
         default:
           return_home ();
@@ -76,28 +76,28 @@ public:
 private:
   // Control vars
   std::shared_ptr<PX4Controller> controller_;
-  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
+  std::unique_ptr<TeleController> tele_;
+  std::unique_ptr<AutoController> auto_;
   rclcpp::TimerBase::SharedPtr timer_;
   int counter_ = 0;
-
-  // Joystick vars
-  Joysticks joysticks_;
-  rclcpp::Time last_joy_time_;
 
   // Drive mode
   DriveMode mode_;
 
   /**
    * Build initial setpoints to enter offboard mode
+   * 
+   * @return whether build is complete
    */
-  void build_setpoints ()
+  bool build_setpoints ()
   {
     // Set offboard mode once 10 setpoints are created
     if (counter_ == 10)
     {
-      controller_->set_offboard_mode();
-      controller_->arm();
-      mode_ = DriveMode::AUTO;
+      controller_->set_offboard_mode ();
+      controller_->arm ();
+      
+      return true;
     }
 
     // Set velocity control (1 meter up)
@@ -106,48 +106,15 @@ private:
     // Increment counter
     if (counter_ < 11)
       counter_++;
-  }
 
-  /**
-   * Joystick input handling
-   */
-  void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg)
-  {
-    // Store joystick values
-    if (msg->axes.size() > 3)
-    {
-      joysticks_ = {msg->axes[0], msg->axes [1], msg->axes [2], msg->axes [3]};
-      last_joy_time_ = this->now();
-    }
-  }
-
-  /**
-   * Teleop control
-   */
-  void teleop ()
-  {
-    // Check for disconnection
-    if ((this->now () - last_joy_time_).seconds () > 1.0)
-    {
-      mode_ = DriveMode::FAIL;
-      return;
-    }
-
-    // Set velocity based on joystick input
-    controller_->publish_velocity_setpoint
-    (
-      joysticks_.left_x, joysticks_.left_y,
-      joysticks_.right_x, joysticks_.right_y
-    );
+    // Build incomplete
+    return false;
   }
 
   /**
    * Failure handling
    */
-  void return_home ()
-  {
-    controller_->publish_position_setpoint (0, 0, 0, 0);
-  }
+  void return_home () { controller_->publish_position_setpoint (0, 0, 0, 0); }
 };
 
 /**
