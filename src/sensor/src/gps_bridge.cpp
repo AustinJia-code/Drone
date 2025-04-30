@@ -53,7 +53,7 @@ private:
   rclcpp::Subscription<px4_msgs::msg::SensorGps>::SharedPtr subscription_;
 };
 
-int main(int argc, char * argv[])
+int main(int argc, char * argv [])
 {
   std::cout << "GPS bridge node" << std::endl;
   setvbuf (stdout, NULL, _IONBF, BUFSIZ);

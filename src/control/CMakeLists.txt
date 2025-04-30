@@ -14,6 +14,7 @@ find_package (geometry_msgs REQUIRED)
 find_package (px4_msgs REQUIRED)
 find_package (rclcpp REQUIRED)
 find_package (sensor_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 
 #******************************** INCLUDE PATHS *******************************#
 include_directories (include)
@@ -28,18 +29,18 @@ target_include_directories (px4_controller PUBLIC
                             $<INSTALL_INTERFACE:include>)
 
 #********************************** EXECUTABLES *******************************#
-# Control node
-add_executable (control_node src/control_node.cpp)
-ament_target_dependencies (control_node rclcpp px4_msgs)
-install (TARGETS control_node DESTINATION lib/${PROJECT_NAME})
+# Drive node
+add_executable (drive_node src/drive_node.cpp)
+ament_target_dependencies (drive_node rclcpp px4_msgs sensor_msgs)
+install (TARGETS drive_node DESTINATION lib/${PROJECT_NAME})
 
 #*********************************** INSTALL **********************************#
 install (TARGETS
          px4_controller
-         control_node
+         drive_node
          DESTINATION lib/${PROJECT_NAME})
 
-target_link_libraries(control_node px4_controller)
+target_link_libraries(drive_node px4_controller)
 
 # Install header files
 install (DIRECTORY include/

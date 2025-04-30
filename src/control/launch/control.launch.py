@@ -18,11 +18,24 @@ def generate_launch_description ():
       output='screen'
     ),
 
+    # Joystick Publisher Node
+    Node (
+      package='joy',
+      executable='joy_node',
+      name='joy_node',
+      output='screen',
+
+      # Joystick location
+      parameters = [{
+        'dev': '/dev/input/js0'
+      }]
+    ),
+    
     # Control Node
     Node (
       package = 'control',
-      executable = 'control_node',
-      name = 'control_node',
+      executable = 'drive_node',
+      name = 'drive_node',
       output = 'screen'
     )
   ])

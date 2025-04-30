@@ -42,6 +42,6 @@ Specific wires:
 - Solder an XT60 12AWG male to TekkoF32
 - Solder 3.5mm Bullet 16AWG to TekkoF32 out pads
 - Solder an XT60 12AWG male to 5V5A BEC
-- Strip a Pixhawk TELEM wire, crimp/solder female DuPont to TX, RX, GND
+- Strip a Pixhawk TELEM wire, solder female DuPont to TX, RX, GND (to RPi)
   - Cap unused wires
-- ??? DuPont female to 3.5mm Bullet 16AWG for Pixhawk-TekkoF32 ???
+- ??? DuPont female to TekkoF32 communication wires (m1-m4, GND)

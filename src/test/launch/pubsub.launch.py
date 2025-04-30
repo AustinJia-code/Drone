@@ -1,5 +1,5 @@
 """
-control nodes
+subscriber nodes
 """
 
 from launch import LaunchDescription

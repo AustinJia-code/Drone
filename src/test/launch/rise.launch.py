@@ -1,5 +1,5 @@
 """
-sensor nodes
+rise nodes
 """
 
 from launch import LaunchDescription
@@ -21,8 +21,8 @@ def generate_launch_description():
     # Test node
     Node (
       package='test',
-      executable='offboard_control',
-      name='offboard_control',
+      executable='test_rise',
+      name='test_rise',
       output='screen'
     )
   ])

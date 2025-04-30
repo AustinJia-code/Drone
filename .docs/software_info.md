@@ -43,26 +43,27 @@
     ```
 5. Test micrortps: ```./MicroXRCEAgent serial --dev /dev/ttyUSB0 -b 921600```
     - if nothing connected, should say something like "1 port not found", working!
-6. Search this repository for "# TODO:" and take care of business
-7. Open config: ```sudo nano /boot/firmware/config.txt```
-8. Enable UART, disable bluetooth:
+6. Open config: ```sudo nano /boot/firmware/config.txt```
+7. Enable UART:
     ```
     enable_uart=1
-    dtoverlay=disable-bt
     ```
-9. Reboot: ```sudo reboot```
-10. Check that ```ls -l /dev/serial0``` points to ```/dev/ttyAMA0```
-11. Verify wiring between RPi5 and Pixhawk
+8. Reboot: ```sudo reboot```
+9. Check that ```ls -l /dev/serial0``` points to ```/dev/ttyAMA0```
+10. Verify wiring between RPi5 and Pixhawk
 
 ## Execution
-1. cd src
-2. git clone https://github.com/PX4/px4_msgs.git
-3. cd ..
-4. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-5. Set source:  ```echo "source ~/Projects/Drone/install/setup.bash" >> ~/.bashrc```
-    - You may need to modify setup.bash path
-6. Source: ```source ~/.bashrc```
-7. launch!
+Do once:
+1. Set source:  ```echo "source ~/Projects/Drone/install/setup.bash" >> ~/.bashrc```
+  - You may need to modify setup.bash path
+2. cd src
+3. git clone https://github.com/PX4/px4_msgs.git
+4. cd ..
+
+Build and Run:
+1. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON  
+2. Source: ```source ~/.bashrc```
+3. launch!
      - ros2 launch sensor sensor.launch.py
      - ros2 launch control control.launch.py
      - ros2 launch system_launch main.launch.py

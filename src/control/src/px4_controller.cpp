@@ -94,6 +94,11 @@ void PX4Controller::publish_offboard_control_mode (ControlMode mode)
   msg.position = mode == PX4Controller::ControlMode::POS;
   msg.velocity = mode == PX4Controller::ControlMode::VEL;
   offboard_mode_pub_->publish (msg);
+
+  // Explicitly disable
+  msg.acceleration = false;
+  msg.attitude = false;
+  msg.body_rate = false;
 }
 
 /**
@@ -102,6 +107,8 @@ void PX4Controller::publish_offboard_control_mode (ControlMode mode)
 void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz, 
                                                float yaw_rate)
 {
+  publish_offboard_control_mode (PX4Controller::ControlMode::VEL);
+
   // Create trajectory message
   TrajectorySetpoint msg {};
   msg.timestamp = node_->get_clock ()
@@ -119,6 +126,8 @@ void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz,
 void PX4Controller::publish_position_setpoint (float x, float y, float z, 
                                                float yaw)
 {
+  publish_offboard_control_mode (PX4Controller::ControlMode::POS);
+
   // Create trajectory message
   TrajectorySetpoint msg{};
   msg.timestamp = node_->get_clock()

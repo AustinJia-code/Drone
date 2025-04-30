@@ -40,7 +40,7 @@ private:
   rclcpp::Subscription<px4_msgs::msg::SensorCombined>::SharedPtr subscription_;
 };
 
-int main(int argc, char * argv[])
+int main(int argc, char * argv [])
 {
   std::cout << "IMU Bridge node" << std::endl;
   setvbuf (stdout, NULL, _IONBF, BUFSIZ);
