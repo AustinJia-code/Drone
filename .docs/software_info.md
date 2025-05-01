@@ -47,7 +47,12 @@
 5. Test micrortps: ```./MicroXRCEAgent serial --dev /dev/ttyUSB0 -b 921600```
     - if nothing is connected, it should say something like "1 port not found", working!
 6. Open config: ```sudo nano /boot/firmware/config.txt```
-7. Enable UART: ```enable_uart=1```
+7. Enable UART and switch BT mode: 
+    ```
+    enable_uart=1
+    dtoverlay=miniuart-bt
+    core_freq=250
+    ```
 8. Reboot: ```sudo reboot```
 9. Check that ```ls -l /dev/serial0``` points to ```/dev/ttyAMA0```
 10. Verify wiring between RPi5 and Pixhawk
