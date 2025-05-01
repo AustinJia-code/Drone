@@ -14,21 +14,32 @@
 class TeleController
 {
 public:
+  /**
+   * Constructor
+   */
   TeleController (std::shared_ptr<PX4Controller> controller,
                   std::shared_ptr<rclcpp::Node> node)
     : controller_ (controller), node_ (node) {}
   
+  /**
+   * Destructor
+   */
   virtual ~TeleController () = default;
 
+  /**
+   * Control loop
+   */
   virtual bool loop () = 0;
 
+  /**
+   * Handles user inputs
+   */
   virtual void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) = 0;
 
 protected:
-  std::shared_ptr<PX4Controller> controller_;
-  std::shared_ptr<rclcpp::Node> node_;
+  std::shared_ptr<PX4Controller> controller_;         // PX4 interface
+  std::shared_ptr<rclcpp::Node> node_;                // Node for pub/subs
 
-  rclcpp::Clock clock_ {RCL_SYSTEM_TIME};
-  rclcpp::Time last_joy_time_;
-  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
+  rclcpp::Clock clock_ {RCL_SYSTEM_TIME};             // Clock
+  rclcpp::Time last_joy_time_;                        // Time of last user input
 };

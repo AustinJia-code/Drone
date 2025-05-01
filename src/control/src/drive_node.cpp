@@ -126,26 +126,43 @@ private:
   }
 
   /**
-   * Gamepad transitions
+   * Gamepad transitions and msg passthrough
    */
   void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg)
   {
-    // Check if 'A' pressed
-    if (msg->buttons.size () > 0 && msg->buttons [0] == 1 && mode_ != DriveMode::AUTO)
+    // if 'A' pressed in TELE, switch to AUTO
+    if (msg->buttons.size () > 0 && msg->buttons [0] == 1 && mode_ == DriveMode::TELE)
     {
       auto_->init ();
       mode_ = DriveMode::AUTO;
     }
 
+    // if any input in AUTO, switch to TELE
+    if (mode_ == DriveMode::AUTO)
+    {
+      // Check if any input has been received
+      bool input = std::any_of (msg->axes.begin (), msg->axes.end (), [] (float a) 
+                      { return std::abs (a) > 0.05; }) ||
+                   std::any_of (msg->buttons.begin (), msg->buttons.end (), [] (int b)
+                      { return b != 0; });
+
+      // Go tele if yes
+      if (input)
+        mode_ = DriveMode::TELE;
+    }
+
     // Pass joy input to active controller
     switch (mode_)
     {
+      // Normal teleop actions
       case DriveMode::TELE: 
         tele_->joy_callback (msg);
         break;
+      // Some autos have minimal joy input
       case DriveMode::AUTO:
         auto_->joy_callback (msg);
         break;
+      // Default nothing
       default: 
         break;
     }
@@ -158,8 +175,8 @@ private:
 int main (int argc, char* argv [])
 {
   rclcpp::init (argc, argv);
-  auto node = std::make_shared<DriveNode>();
-  node->initialize();
+  auto node = std::make_shared<DriveNode> ();
+  node->initialize ();
 
   rclcpp::spin (node);
 

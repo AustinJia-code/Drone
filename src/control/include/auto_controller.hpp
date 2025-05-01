@@ -1,6 +1,6 @@
 /**
  * @file auto_controller.hpp
- * @brief Structure for an auto controller
+ * @brief Structure for a mostly auto controller
  */
 
 #pragma once
@@ -14,22 +14,42 @@
 class AutoController
 {
 public:
+  /**
+   * Constructor
+   */
   AutoController (std::shared_ptr<PX4Controller> controller,
                   std::shared_ptr<rclcpp::Node> node)
     : controller_ (controller), node_ (node) {}
   
+  /**
+   * Destructor
+   */
   virtual ~AutoController () = default;
 
+  /**
+   * Initialize the controller
+   */
   virtual void init () = 0;
-  virtual bool loop () = 0;
-  virtual bool is_over () = 0;
 
+  /**
+   * Control loop for the auto
+   * @return false if the loop is to terminate
+   */
+  virtual bool loop () = 0;
+
+  /**
+   * Handles minimal user inputs
+   */
   virtual void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) = 0;
 
-protected:
-  std::shared_ptr<PX4Controller> controller_;
-  std::shared_ptr<rclcpp::Node> node_;
-  bool is_over_ = false;
+  /**
+   * Getter for completion state
+   * @return true if the control loop is complete
+   */
+  bool is_over () { return is_over_; }
 
-  rclcpp::Subscription<sensor_msgs::msg::Joy>::SharedPtr joy_sub_;
+protected:
+  std::shared_ptr<PX4Controller> controller_;             // PX4 controller
+  std::shared_ptr<rclcpp::Node> node_;                    // Node for pub/subs
+  bool is_over_ = false;                                  // Completion state
 };

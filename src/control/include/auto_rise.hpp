@@ -19,11 +19,10 @@ public:
 
   void init () override;
   bool loop () override;
-  bool is_over () override;
 
   void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) override;
 
 private:
-  rclcpp::Time init_time_;
-  float run_time_;
+  rclcpp::Time init_time_;                      // init time of the auto
+  float run_time_;                              // current run time of the auto
 };

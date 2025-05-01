@@ -1,25 +1,18 @@
 /**
  * @file auto_rise.cpp
- * @brief Implementation of rise auto
+ * @brief Rises to 1m, completes in 10 seconds
  */
 
 #include "auto_rise.hpp"
 
-/**
- * AutoRise constructor
- */
+// Init with 10 seconds
 AutoRise::AutoRise (std::shared_ptr<PX4Controller> controller,
                     std::shared_ptr<rclcpp::Node> node)
   : AutoController (controller, node), run_time_ (10) {}
 
-/**
- * Init
- */
+// Set init time
 void AutoRise::init () { init_time_ = node_->now (); }
 
-/**
-* Auto loop
-*/
 bool AutoRise::loop ()
 {
   // Simple rising
@@ -27,22 +20,8 @@ bool AutoRise::loop ()
 
   // Check if runtime is up
   is_over_ = is_over_ || ((node_->now () - init_time_).seconds () > run_time_);
-  return is_over_;
+  return !is_over_;
 }
 
-/**
- * Check if auto is over (done/errored)
- */
-bool AutoRise::is_over () { return is_over_; }
-
-/**
- * Manual override handling
- */
-void AutoRise::joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg)
-{
-  // Check if any input has been received
-  is_over_ = std::any_of (msg->axes.begin (), msg->axes.end (), [] (float a) 
-                            { return std::abs (a) > 0.05; }) ||
-             std::any_of (msg->buttons.begin (), msg->buttons.end (), [] (int b)
-                            { return b != 0; });
-}
+// No user input during this auto
+void AutoRise::joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) { (void) msg; }

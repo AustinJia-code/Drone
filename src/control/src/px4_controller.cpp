@@ -18,9 +18,6 @@ using namespace std::chrono;
 using namespace std::chrono_literals;
 using namespace px4_msgs::msg;
 
-/**
- * Constructor
- */
 PX4Controller::PX4Controller (rclcpp::Node *node) : node_ (node)
 {
   // Handles vehicle commands (arm, disarm, etc.)
@@ -34,9 +31,6 @@ PX4Controller::PX4Controller (rclcpp::Node *node) : node_ (node)
                                 ("/fmu/in/trajectory_setpoint", 10);
 }
 
-/**
- * General command publisher
- */
 void PX4Controller::publish_vehicle_command (uint16_t command, float param1, 
                                              float param2)
 {
@@ -56,33 +50,21 @@ void PX4Controller::publish_vehicle_command (uint16_t command, float param1,
   vehicle_cmd_pub_->publish (cmd);
 }
 
-/**
- * Arms drone
- */
 void PX4Controller::arm ()
 {
   publish_vehicle_command (VehicleCommand::VEHICLE_CMD_COMPONENT_ARM_DISARM, 1.0f);
 }
 
-/**
- * Disarms drone
- */
 void PX4Controller::disarm ()
 {
   publish_vehicle_command (VehicleCommand::VEHICLE_CMD_COMPONENT_ARM_DISARM, 0.0f);
 }
 
-/**
- * Sets drone to offboard control mode
- */
 void PX4Controller::set_offboard_mode ()
 {
   publish_vehicle_command (VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1.0f, 6.0f);
 }
 
-/**
- * Set control mode
- */
 void PX4Controller::publish_offboard_control_mode (ControlMode mode)
 {
   // Create offboard control message
@@ -101,9 +83,6 @@ void PX4Controller::publish_offboard_control_mode (ControlMode mode)
   msg.body_rate = false;
 }
 
-/**
- * Set a global velocity setpoint
- */
 void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz, 
                                                float yaw_rate)
 {
@@ -120,9 +99,6 @@ void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz,
   traj_setpoint_pub_->publish(msg);
 }
 
-/**
- * Set a position setpoint
- */
 void PX4Controller::publish_position_setpoint (float x, float y, float z, 
                                                float yaw)
 {

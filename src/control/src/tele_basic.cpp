@@ -7,16 +7,10 @@
 
 #include "tele_basic.hpp"
 
-/**
- * TeleBasic constructor
- */
 TeleBasic::TeleBasic (std::shared_ptr<PX4Controller> controller,
                       std::shared_ptr<rclcpp::Node> node)
   : TeleController (controller, node) {}
 
-/**
- * Tele loop
- */
 bool TeleBasic::loop ()
 {
   // Check for disconnect
@@ -33,16 +27,12 @@ bool TeleBasic::loop ()
   return true;
 }
 
-/**
- * Gamepad input handling
- */
 void TeleBasic::joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg)
 {
   // Store joysticks
   if (msg->axes.size() > 3)
   {
     joysticks_ = {msg->axes [0], msg->axes [1], msg->axes [2], msg->axes [3]};
-    
     last_joy_time_ = clock_.now ();
   }
 }
