@@ -7,7 +7,7 @@
 
 #include <memory>
 #include "px4_controller.hpp"
-#include "tele_controller.hpp"
+#include "abstract_tele.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
 class TeleBasic : public TeleController

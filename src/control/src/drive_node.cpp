@@ -60,8 +60,7 @@ private:
 
   /**
    * Build initial setpoints to enter offboard mode
-   * 
-   * @return whether build is complete
+   * @return true if build is complete, false otherwise
    */
   bool build_setpoints ()
   {

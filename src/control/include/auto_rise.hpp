@@ -1,5 +1,5 @@
 /**
- * @file auto_rose.hpp
+ * @file auto_rise.hpp
  * @brief Rises to 1m for 10 seconds
  */
 
@@ -7,7 +7,7 @@
 
 #include <memory>
 #include "px4_controller.hpp"
-#include "auto_controller.hpp"
+#include "abstract_auto.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
 class AutoRise : public AutoController

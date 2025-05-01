@@ -1,5 +1,5 @@
 /**
- * @file tele_controller.hpp
+ * @file abstract_tele.hpp
  * @brief Structure for a teleop controller
  */
 

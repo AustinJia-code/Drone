@@ -84,7 +84,7 @@ private:
   void publish_vehicle_command (uint16_t command, float param1 = 0.0, float param2 = 0.0);
 
   /**
-   * Timestamp getter
+   * Timestamp
    */
   void get_timestape ();
 };

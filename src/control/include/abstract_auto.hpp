@@ -1,6 +1,6 @@
 /**
- * @file auto_controller.hpp
- * @brief Structure for a mostly auto controller
+ * @file abstract_auto.hpp
+ * @brief Structure for a mostly-auto controller
  */
 
 #pragma once
@@ -33,7 +33,7 @@ public:
 
   /**
    * Control loop for the auto
-   * @return false if the loop is to terminate
+   * @return false if the loop is to terminate, true otherwise
    */
   virtual bool loop () = 0;
 
@@ -44,7 +44,7 @@ public:
 
   /**
    * Getter for completion state
-   * @return true if the control loop is complete
+   * @return true if the control loop is complete, false otherwise
    */
   bool is_over () { return is_over_; }
 
