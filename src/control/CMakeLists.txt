@@ -31,9 +31,7 @@ target_include_directories (px4_controller PUBLIC
 #********************************** EXECUTABLES *******************************#
 # Drive node
 add_executable (drive_node 
-                src/drive_node.cpp
-                src/tele_basic.cpp
-                src/auto_rise.cpp)
+                src/drive_node.cpp)
 ament_target_dependencies (drive_node rclcpp px4_msgs sensor_msgs)
 install (TARGETS drive_node DESTINATION lib/${PROJECT_NAME})
 
