@@ -8,8 +8,8 @@
 
 #include "rclcpp/rclcpp.hpp"
 #include "px4_controller.hpp"
-#include "tele_basic.hpp"
-#include "auto_rise.hpp"
+#include "opmodes/tele_basic.hpp"
+#include "opmodes/auto_rise.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
 using namespace std::chrono_literals;
