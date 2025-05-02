@@ -43,6 +43,8 @@
     mkdir build && cd build
     cmake ..
     make
+    sudo make install
+    sudo ldconfig /usr/local/lib/
     ```
 5. Test micrortps: ```./MicroXRCEAgent serial --dev /dev/ttyUSB0 -b 921600```
     - if nothing is connected, it should say something like "1 port not found", working!
