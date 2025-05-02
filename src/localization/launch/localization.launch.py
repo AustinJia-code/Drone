@@ -10,7 +10,7 @@ def generate_launch_description():
   ekf_path = PathJoinSubstitution([pkg_localization, 'launch', 'config', 'ekf.yaml'])
   navsat_path = PathJoinSubstitution([pkg_localization, 'launch', 'config', 'navsat_config.yaml'])
 
-  agent_path = '../Micro-XRCE-DDS-Agent/build/MicroXRCEAgent'
+  agent_path = 'Micro-XRCE-DDS-Agent/build/MicroXRCEAgent'
 
   return LaunchDescription([
     ExecuteProcess(

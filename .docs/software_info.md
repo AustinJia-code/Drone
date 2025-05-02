@@ -14,11 +14,12 @@
 ## Setup
 1. Configure Pixhawk with QGroundControl
 
-  |Parameter      |	Value   |	Description                     |
-  |-----          |-----    |-----                            |
-  | MAV_1_CONFIG  |	0	      | Disable MAVLink on TELEM2       |
-  | SER_TEL2_BAUD |	921600  |	Set baud rate to match RPi      |
-  | UXRCE_DDS_CFG |	telem2  |	Use TELEM2 for the RTPS client  |
+  |Parameter       | Value  |	Description                     |
+  |-----           |-----   |-----                            |
+  | MAV_1_CONFIG   | 0      | Disable MAVLink on TELEM2       |
+  | SER_TEL2_BAUD  | 921600 |	Set baud rate to match RPi      |
+  | UXRCE_DDS_CFG  | telem2 |	Use TELEM2 for the RTPS client  |
+  | COM_RC_IN_MODE | 4      | Disable RC controller           |
 
 2. Boot RPi5 with Ubuntu 24.04.2 , 64 bit
     - 22.xx.x is technically better supported by the libraries... but RPi5 doesn't like it!
@@ -36,7 +37,6 @@
     - Test basic pub/sub launcher: ```ros2 launch test pubsub.launch.py```
 4. Install micrortps_agent for flight computer communication:
     ```
-    cd ..
     git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
     cd Micro-XRCE-DDS-Agent
     git submodule update --init --recursive
@@ -55,6 +55,8 @@
     ```
 8. Reboot: ```sudo reboot```
 9. Check that ```ls -l /dev/serial0``` points to ```/dev/ttyAMA0```
+    - Bluetooth should now be available on ```/dev/ttyS0```
+    - UART should now be available on ```/dev/ttyAMA0```
 10. Verify wiring between RPi5 and Pixhawk
 
 ## Execution

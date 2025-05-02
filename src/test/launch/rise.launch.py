@@ -9,7 +9,7 @@ import os
 
 def generate_launch_description():
   # TODO: Replace this with your path!
-  agent_path = os.path.expanduser('../Micro-XRCE-DDS-Agent/build/MicroXRCEAgent')
+  agent_path = os.path.expanduser('Micro-XRCE-DDS-Agent/build/MicroXRCEAgent')
   
   return LaunchDescription ([
     # Start the PX4 micrortps_agent

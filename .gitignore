@@ -1,5 +1,6 @@
 **/build/
 **/install/
-/src/px4_msgs
-/.vscode/
 **/log/
+/src/px4_msgs
+Micro-XRCE-DDS-Agent
+/.vscode/
