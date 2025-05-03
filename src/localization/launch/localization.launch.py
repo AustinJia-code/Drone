@@ -1,3 +1,5 @@
+### LIKELY UNNEEDED, PX4 HAS ITS OWN LOCALIZATION ###
+
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import ExecuteProcess

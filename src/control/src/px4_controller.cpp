@@ -94,7 +94,9 @@ void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz,
                        ->now()
                         .nanoseconds()
                        / 1000;
-  msg.velocity = {vx, vy, vz};
+
+  // In NED, Z is down
+  msg.velocity = {vx, vy, -vz};
   msg.yawspeed = yaw_rate;
   traj_setpoint_pub_->publish(msg);
 }
@@ -110,7 +112,9 @@ void PX4Controller::publish_position_setpoint (float x, float y, float z,
                        ->now()
                         .nanoseconds()
                        / 1000;
-  msg.position = {x, y, z};
+
+  // In NED, Z is down
+  msg.position = {x, y, -z};
   msg.yaw = yaw;
   traj_setpoint_pub_->publish (msg);
 }
