@@ -31,7 +31,6 @@
       sudo apt update && sudo apt install ros-jazzy-desktop
       echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
       source ~/.bashrc
-      sudo apt install ros-jazzy-robot-localization
       ```
 3. With only RPi5 plugged in, try following [Execution](#Execution) flow and install packages as necessary 
     - Test basic pub/sub launcher: ```ros2 launch test pubsub.launch.py```
@@ -56,9 +55,9 @@
     core_freq=250
     ```
 8. Reboot: ```sudo reboot```
-9. Check that ```ls -l /dev/serial0``` points to ```/dev/ttyAMA0```
-    - Bluetooth should now be available on ```/dev/ttyS0```
-    - UART should now be available on ```/dev/ttyAMA0```
+9. Check that ```ls -l /dev/ttyA*``` points to ```/dev/ttyAMA10```
+    - ~~Bluetooth should now be available on ```/dev/ttyS0```~~
+    - ~~UART should now be available on ```/dev/ttyAMA0```~~
 10. Verify wiring between RPi5 and Pixhawk
 
 ## Execution
@@ -70,8 +69,8 @@ Do once:
 4. cd ..
 
 Build and Run:
-1. Source: ```source ~/.bashrc```
-2. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+1. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+2. Source: ```source ~/.bashrc```
 3. launch!
      - ros2 launch localization localization.launch.py
      - ros2 launch control control.launch.py
