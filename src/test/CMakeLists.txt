@@ -31,6 +31,10 @@ add_executable (test_joy src/test_joy.cpp)
 ament_target_dependencies (test_joy rclcpp std_msgs sensor_msgs)
 install (TARGETS test_rise DESTINATION lib/${PROJECT_NAME})
 
+add_executable (test_imu src/test_imu.cpp)
+ament_target_dependencies (test_imu rclcpp px4_msgs)
+install (TARGETS test_imu DESTINATION lib/${PROJECT_NAME})
+
 #*********************************** INSTALL **********************************#
 # Install launch files.
 install (DIRECTORY launch DESTINATION share/${PROJECT_NAME}/)
