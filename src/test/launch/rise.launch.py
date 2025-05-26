@@ -14,7 +14,7 @@ def generate_launch_description():
   return LaunchDescription ([
     # Start the PX4 micrortps_agent
     ExecuteProcess (
-      cmd=[agent_path,'serial','--dev','/dev/ttyAMA0','-b','921600'],
+      cmd=[agent_path,'serial','--dev','/dev/ttyUSB0','-b','921600'],
       output='screen'
     ),
 

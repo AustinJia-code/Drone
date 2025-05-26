@@ -12,6 +12,7 @@
 | Frame             | [S500 Quadcopter](https://www.aliexpress.us/item/2251832118132126.html?)                | Frame                             |
 | Battery           | [4s 5000mAh (14.8V)](https://www.amazon.com/dp/B06XK8WWX1/)                             | Battery                           |
 | RPi Stepdown      | [Generic](https://www.aliexpress.us/item/3256805630251942.html?)                        | Buck down for RPi (to 5V/5A)      |
+| Serial to USB     | [FT232RL](https://www.amazon.com/DSD-TECH-Adapter-FT232RL-Compatible/dp/B07BBPX8B8/)    | Serial to USB for Pixhawk to RPi |
 | Power Splitter    | [XT60 1-to-3](https://www.aliexpress.us/item/3256806275642777.html?)                    | Power splitter                    |
 | Controller        | [Bluetooth](https://www.aliexpress.us/item/3256807529801372.html?)                      | Manual override (close range)     |
 
@@ -22,9 +23,18 @@ Specific wires:
 - Solder an XT60 12AWG male to TekkoF32
 - Solder 3.5mm Bullet 16AWG to TekkoF32 out pads
 - Solder an XT60 12AWG male to 5V5A BEC
-- Strip a Pixhawk TELEM wire, solder female DuPont to TX, RX, GND (to RPi)
-  - Cap unused wires
-- ??? DuPont female to TekkoF32 communication wires (m1-m4, GND)
+- Strip a Pixhawk TELEM wire, solder female DuPont to all but 5V, connect to Serial to USB:
+
+| TELEM2 Pin | Signal     | FTDI Pin | FTDI Signal            |
+| ---------- | ---------  | -------- | ---------------------- |
+| 1          | +5V (red)  | NONE     | DO NOT CONNECT!        |
+| 2          | Tx (out)   | 5        | FTDI RX (yellow) (in)  |
+| 3          | Rx (in)    | 4        | FTDI TX (orange) (out) |
+| 4          | CTS (in)   | 6        | FTDI RTS (green) (out) |
+| 5          | RTS (out)  | 2        | FTDI CTS (brown) (in)  |
+| 6          | GND        | 1        | FTDI GND (black)       |
+
+- DuPont female to TekkoF32 communication wires (m1-m4, GND)
 
 ### Power Estimate
 **Hover Power:** ~45A
