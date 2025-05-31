@@ -1,6 +1,6 @@
 /**
- * @file auto_rise.hpp
- * @brief Rises to 1m for 10 seconds
+ * @file auto_patrol.hpp
+ * @brief Patrols setpoints, breaks and tracks target if identified
  */
 
 #pragma once
@@ -10,14 +10,25 @@
 #include "abstract_auto.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
-class AutoRise : public AutoController
+/**
+ * States of this auto
+ */
+enum class States
+{
+  DISABLED = 0,
+  PATROLLING = 1,
+  ERRAND = 2
+};
+
+
+class AutoPatrol : public AutoController
 {
 public:
-  explicit AutoRise (std::shared_ptr<PX4Controller> controller,
+  explicit AutoPatrol (std::shared_ptr<PX4Controller> controller,
                      std::shared_ptr<rclcpp::Node> node)
-    : AutoController (controller, node), run_time_ (10) {}
+    : AutoController (controller, node) {}
 
-  ~AutoRise () override = default;
+  ~AutoPatrol () override = default;
 
   void init () override
   {
@@ -29,10 +40,8 @@ public:
   {
     // Simple rising
     controller_->publish_position_setpoint (0.0, 0.0, 1.0, 0.0);
-
-    // Check if runtime is up
-    is_over_ = is_over_ || ((node_->now () - init_time_).seconds () > run_time_);
-    return !is_over_;
+    
+    return true;
   }
   
   void joy_callback (const sensor_msgs::msg::Joy::SharedPtr msg) override 
@@ -43,5 +52,4 @@ public:
 
 private:
   rclcpp::Time init_time_;                      // init time of the auto
-  float run_time_;                              // max run time of the auto
 };

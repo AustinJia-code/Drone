@@ -14,28 +14,18 @@
 #include "../../pathing/include/pose.hpp"
 
 /**
- * Drive states
+ * Control modes for the PX4
  */
-enum class DriveMode
+enum class ControlMode 
 {
-  INIT = -1,
-  AUTO = 0,
-  TELE = 1,
-  FAIL = 2
+  POS = 0,  
+  VEL = 1
 };
+
 
 class PX4Controller
 {
 public:
-  /**
-   * Control modes for the PX4
-   */
-  enum class ControlMode 
-  {
-    POS = 0,
-    VEL = 1
-  };
-
   /**
    * Constructor
    */
@@ -59,7 +49,7 @@ public:
   /**
    * Publish a control mode command
    */
-  void publish_offboard_control_mode (ControlMode mode);
+  void publish_offboard_control_mode (const ControlMode& mode);
 
   /**
    * Publish a velocity setpoint command
@@ -71,10 +61,8 @@ public:
    */
   void publish_position_setpoint (float x, float y, float z, float yaw);
 
-  /**
-   * @return true if vehicle is at rest at a position
-   */
-  bool at_position_setpoint ();
+  // Drone pose
+  std::shared_ptr<SharedPose> pose;
 
 private:
   // Node
@@ -90,8 +78,6 @@ private:
   rclcpp::Subscription<px4_msgs::msg::VehicleLocalPosition>::SharedPtr position_sub_; 
   // Heading listener
   rclcpp::Subscription<px4_msgs::msg::VehicleAttitude>::SharedPtr yaw_sub_; 
-
-  SharedPose pose_;
 
   /**
    * Publish command helper

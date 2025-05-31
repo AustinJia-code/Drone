@@ -12,6 +12,17 @@
 using namespace std::chrono_literals;
 
 /**
+ * Drive states
+ */
+enum class DriveMode
+{
+  INIT = -1,
+  AUTO = 0,
+  TELE = 1,
+  FAIL = 2
+};
+
+/**
  * DriveNode
  */
 class DriveNode : public rclcpp::Node

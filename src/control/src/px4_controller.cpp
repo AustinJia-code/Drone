@@ -30,14 +30,17 @@ PX4Controller::PX4Controller (rclcpp::Node *node) : node_ (node)
   traj_setpoint_pub_ = node_->create_publisher<TrajectorySetpoint>
                                 ("/fmu/in/trajectory_setpoint", 10);
 
+  // Init pose
+  pose = std::make_shared<SharedPose> ();
+
   // Read position, store it
   position_sub_ = node_->create_subscription<px4_msgs::msg::VehicleLocalPosition>
   (
     "/fmu/out/vehicle_local_position", 10,
     [this](const px4_msgs::msg::VehicleLocalPosition::SharedPtr msg)
     {
-      pose_.set_position (msg->x, msg->y, msg->z);
-      pose_.set_velocity (msg->vx, msg->vy, msg->vz);
+      pose->set_position (msg->x, msg->y, msg->z);
+      pose->set_velocity (msg->vx, msg->vy, msg->vz);
     }
   );
 
@@ -52,7 +55,7 @@ PX4Controller::PX4Controller (rclcpp::Node *node) : node_ (node)
       float q2 = msg->q[2];
       float q3 = msg->q[3];
 
-      pose_.set_yaw (std::atan2 (2.0f * (q0 * q3 + q1 * q2),
+      pose->set_yaw (std::atan2 (2.0f * (q0 * q3 + q1 * q2),
                                           1.0f - 2.0f * (q2 * q2 + q3 * q3)));
     }
   );
@@ -92,7 +95,7 @@ void PX4Controller::set_offboard_mode ()
   publish_vehicle_command (VehicleCommand::VEHICLE_CMD_DO_SET_MODE, 1.0f, 6.0f);
 }
 
-void PX4Controller::publish_offboard_control_mode (ControlMode mode)
+void PX4Controller::publish_offboard_control_mode (const ControlMode& mode)
 {
   // Create offboard control message
   OffboardControlMode msg {};
@@ -100,8 +103,8 @@ void PX4Controller::publish_offboard_control_mode (ControlMode mode)
                        ->now()
                         .nanoseconds()
                        / 1000;
-  msg.position = mode == PX4Controller::ControlMode::POS;
-  msg.velocity = mode == PX4Controller::ControlMode::VEL;
+  msg.position = mode == ControlMode::POS;
+  msg.velocity = mode == ControlMode::VEL;
   offboard_mode_pub_->publish (msg);
 
   // Explicitly disable
@@ -113,7 +116,7 @@ void PX4Controller::publish_offboard_control_mode (ControlMode mode)
 void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz, 
                                                float yaw_rate)
 {
-  publish_offboard_control_mode (PX4Controller::ControlMode::VEL);
+  publish_offboard_control_mode (ControlMode::VEL);
 
   // Create trajectory message
   TrajectorySetpoint msg {};
@@ -131,7 +134,7 @@ void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz,
 void PX4Controller::publish_position_setpoint (float x, float y, float z, 
                                                float yaw)
 {
-  publish_offboard_control_mode (PX4Controller::ControlMode::POS);
+  publish_offboard_control_mode (ControlMode::POS);
 
   // Create trajectory message
   TrajectorySetpoint msg{};
