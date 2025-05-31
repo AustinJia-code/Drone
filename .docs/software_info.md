@@ -88,8 +88,7 @@ Build and Run:
 1. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 2. Source: ```source ~/.bashrc```
 3. launch!
-     - ros2 launch localization localization.launch.py
-     - ros2 launch control control.launch.py
+     - ros2 launch test sensor.launch.py
      - ros2 launch system_launch main.launch.py
 
 ## Misc

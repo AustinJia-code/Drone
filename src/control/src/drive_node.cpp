@@ -1,9 +1,6 @@
 /**
  * @file drive_node.cpp
- * @brief ROS node for flight specific controls
- * 
- * TODO: Add auto
- * TODO: Add switch to tele on joy movement
+ * @brief ROS node for flight specific controls - contains one teleop and auto
  */
 
 #include "rclcpp/rclcpp.hpp"

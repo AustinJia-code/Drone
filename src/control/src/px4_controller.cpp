@@ -29,6 +29,33 @@ PX4Controller::PX4Controller (rclcpp::Node *node) : node_ (node)
   // Handles setpoints (position, trajectory, etc.)
   traj_setpoint_pub_ = node_->create_publisher<TrajectorySetpoint>
                                 ("/fmu/in/trajectory_setpoint", 10);
+
+  // Read position, store it
+  position_sub_ = node_->create_subscription<px4_msgs::msg::VehicleLocalPosition>
+  (
+    "/fmu/out/vehicle_local_position", 10,
+    [this](const px4_msgs::msg::VehicleLocalPosition::SharedPtr msg)
+    {
+      pose_.set_position (msg->x, msg->y, msg->z);
+      pose_.set_velocity (msg->vx, msg->vy, msg->vz);
+    }
+  );
+
+  // Read yaw, store it
+  yaw_sub_ = node_->create_subscription<px4_msgs::msg::VehicleAttitude>
+  (
+    "/fmu/out/vehicle_attitude", 10,
+    [this](const px4_msgs::msg::VehicleAttitude::SharedPtr msg)
+    {
+      float q0 = msg->q[0];
+      float q1 = msg->q[1];
+      float q2 = msg->q[2];
+      float q3 = msg->q[3];
+
+      pose_.set_yaw (std::atan2 (2.0f * (q0 * q3 + q1 * q2),
+                                          1.0f - 2.0f * (q2 * q2 + q3 * q3)));
+    }
+  );
 }
 
 void PX4Controller::publish_vehicle_command (uint16_t command, float param1, 

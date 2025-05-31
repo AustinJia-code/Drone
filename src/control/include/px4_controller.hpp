@@ -9,6 +9,9 @@
 #include <px4_msgs/msg/vehicle_command.hpp>
 #include <px4_msgs/msg/offboard_control_mode.hpp>
 #include <px4_msgs/msg/trajectory_setpoint.hpp>
+#include <px4_msgs/msg/vehicle_local_position.hpp>
+#include <px4_msgs/msg/vehicle_attitude.hpp>
+#include "../../pathing/include/pose.hpp"
 
 /**
  * Drive states
@@ -68,6 +71,11 @@ public:
    */
   void publish_position_setpoint (float x, float y, float z, float yaw);
 
+  /**
+   * @return true if vehicle is at rest at a position
+   */
+  bool at_position_setpoint ();
+
 private:
   // Node
   rclcpp::Node *node_;
@@ -78,6 +86,13 @@ private:
   // Setpoint publisher
   rclcpp::Publisher<px4_msgs::msg::TrajectorySetpoint>::SharedPtr traj_setpoint_pub_;
 
+  // Position listener
+  rclcpp::Subscription<px4_msgs::msg::VehicleLocalPosition>::SharedPtr position_sub_; 
+  // Heading listener
+  rclcpp::Subscription<px4_msgs::msg::VehicleAttitude>::SharedPtr yaw_sub_; 
+
+  SharedPose pose_;
+
   /**
    * Publish command helper
    */
@@ -86,5 +101,5 @@ private:
   /**
    * Timestamp
    */
-  void get_timestape ();
+  void get_timestamp ();
 };

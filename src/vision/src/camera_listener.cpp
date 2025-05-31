@@ -1,7 +1,6 @@
 /**
  * @file camera_listener.cpp
  * @brief ROS node for camera data
- * @cite https://github.com/PX4/px4_ros_com/blob/main/src/examples/listeners/vehicle_gps_position_listener.cpp
  */
 
  #include "rclcpp/rclcpp.hpp"

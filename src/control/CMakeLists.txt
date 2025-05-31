@@ -14,10 +14,7 @@ find_package (geometry_msgs REQUIRED)
 find_package (px4_msgs REQUIRED)
 find_package (rclcpp REQUIRED)
 find_package (sensor_msgs REQUIRED)
-find_package(sensor_msgs REQUIRED)
-
-#******************************** INCLUDE PATHS *******************************#
-include_directories (include)
+find_package (pathing REQUIRED)
 
 #******************************** LIBRARY TARGET ******************************#
 add_library (px4_controller src/px4_controller.cpp)
@@ -26,6 +23,7 @@ ament_target_dependencies (px4_controller rclcpp px4_msgs)
 
 target_include_directories (px4_controller PUBLIC
                             $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+                            $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/../pathing/include>
                             $<INSTALL_INTERFACE:include>)
 
 #********************************** EXECUTABLES *******************************#
@@ -41,7 +39,8 @@ install (TARGETS
          drive_node
          DESTINATION lib/${PROJECT_NAME})
 
-target_link_libraries(drive_node px4_controller)
+target_link_libraries (drive_node px4_controller)
+ament_target_dependencies (px4_controller pathing)
 
 # Install header files
 install (DIRECTORY include/
