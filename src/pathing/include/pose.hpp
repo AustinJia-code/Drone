@@ -8,9 +8,27 @@
 class Pose
 {
   public:
-    float x, y, z;      // position (meters)
-    float vx, vy, vz;   // velocity (meters/sec)
-    float yaw;          // heading (radians)
+    float x, y, z, yaw;           // position (meters, radians)
+    float vx, vy, vz, yaw_rate;   // velocity (meters/sec, radians/sec)
+
+    /**
+     * Comprehensive constructor
+     */
+    explicit Pose (float x, float y, float z, float yaw,
+                   float vx, float vy, float vz, float vyaw)
+          : x (x), y (y), z (z), yaw (yaw),
+            vx (vx), vy (vy), vz (vz), yaw_rate (vyaw) {}
+
+    /**
+     * Position and heading constructor
+     */
+    explicit Pose (float x, float y, float z, float yaw)
+          : Pose (x, y, z, yaw, 0, 0, 0, 0) {}
+
+    /**
+     * Default constructor
+     */
+    Pose () : Pose (0, 0, 0, 0) {}
 
     /**
      * Returns Euclidian distance between two vec3s
@@ -94,6 +112,15 @@ class SharedPose
     {
       std::lock_guard<std::mutex> lock (mutex_);
       pose_.yaw = yaw;
+    }
+
+    /**
+     * Set yaw rate
+     */
+    void set_yaw_rate (float yaw_rate)
+    {
+      std::lock_guard<std::mutex> lock (mutex_);
+      pose_.yaw_rate = yaw_rate;
     }
 
   private:

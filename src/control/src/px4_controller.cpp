@@ -55,8 +55,9 @@ PX4Controller::PX4Controller (rclcpp::Node *node) : node_ (node)
       float q2 = msg->q[2];
       float q3 = msg->q[3];
 
+      // Quaternion conversion
       pose->set_yaw (std::atan2 (2.0f * (q0 * q3 + q1 * q2),
-                                          1.0f - 2.0f * (q2 * q2 + q3 * q3)));
+                                 1.0f - 2.0f * (q2 * q2 + q3 * q3)));
     }
   );
 }
@@ -131,6 +132,11 @@ void PX4Controller::publish_velocity_setpoint (float vx, float vy, float vz,
   traj_setpoint_pub_->publish(msg);
 }
 
+void PX4Controller::publish_velocity_setpoint (const Pose pose)
+{
+  publish_velocity_setpoint (pose.vx, pose.vy, pose.vz, pose.yaw_rate);
+}
+
 void PX4Controller::publish_position_setpoint (float x, float y, float z, 
                                                float yaw)
 {
@@ -147,4 +153,9 @@ void PX4Controller::publish_position_setpoint (float x, float y, float z,
   msg.position = {x, y, -z};
   msg.yaw = yaw;
   traj_setpoint_pub_->publish (msg);
+}
+
+void PX4Controller::publish_position_setpoint (const Pose pose)
+{
+  publish_position_setpoint (pose.x, pose.y, pose.z, pose.yaw);
 }

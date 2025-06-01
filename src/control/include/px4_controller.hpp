@@ -57,9 +57,19 @@ public:
   void publish_velocity_setpoint (float vx, float vy, float vz, float yaw_rate);
 
   /**
+   * Publish a velocity setpoint from pose
+   */
+  void publish_velocity_setpoint (const Pose pose);
+
+  /**
    * Publish a position setpoint command
    */
   void publish_position_setpoint (float x, float y, float z, float yaw);
+
+  /**
+   * Publish a position setpoint from pose
+   */
+  void publish_position_setpoint (const Pose pose);
 
   // Drone pose
   std::shared_ptr<SharedPose> pose;
