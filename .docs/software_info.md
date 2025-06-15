@@ -10,6 +10,7 @@
 | XRCE-DDS      | Companion comm. agent   | [GitHub](https://github.com/eProsima/Micro-XRCE-DDS-Agent)                |
 | OpenCV        | Basic image processing  |
 | YOLO          | Object detection        |
+| LibCamera     | Camera "driver "        | [Wiki](https://www.waveshare.com/wiki/IMX219-83_Stereo_Camera#Working_with_Raspberry_Pi_5_.28libcamera.29)  |
 
 ## Setup
 1. Disable RC controller parameter in QGroundControl
@@ -73,11 +74,30 @@
     UXRCE_DDS_CFG = 102 (TELEM2)
     SER_TEL2_BAUD = 921600
     ```
-12. At this point, setup should be complete!
+12. At this point, basic setup should be complete!
     ```
     ros2 launch test sensor.launch.py
     ```
     - If still issues, read through the original docs [here](https://docs.px4.io/main/en/companion_computer/pixhawk_rpi.html) and [here](https://docs.px4.io/main/en/companion_computer/pixhawk_companion.html)
+14. LibCamera setup:
+    ```
+    sudo apt install libcamera-apps
+    sudo nano /boot/firmware/config.txt
+    ```
+    add
+    ```
+    dtoverlay=imx219,cam0
+    dtoverlay=imx219,cam1
+    ```
+13. Enable camera: ```sudo raspi-config```
+    - Interface Options > Camera > Enable
+15. sudo reboot
+16. Test LibCamera:
+    ```
+    libcamera-hello --list-cameras
+    libcamera-hello -t 0 --camera 0
+    libcamera-hello -t 0 --camera 1
+    ```
 
 ## Execution
 Do once:
