@@ -32,7 +32,6 @@
     ```
     cd src
     git clone https://github.com/PX4/px4_msgs.git
-    cd ..
     ```
 4. With only RPi5 plugged in, try following [Execution](#Execution) flow and install packages as necessary 
     - Test basic pub/sub launcher: ```ros2 launch test pubsub.launch.py```
@@ -79,35 +78,17 @@
     ros2 launch test sensor.launch.py
     ```
     - If still issues, read through the original docs [here](https://docs.px4.io/main/en/companion_computer/pixhawk_rpi.html) and [here](https://docs.px4.io/main/en/companion_computer/pixhawk_companion.html)
-14. LibCamera setup:
-    ```
-    sudo apt install libcamera-apps
-    sudo nano /boot/firmware/config.txt
-    ```
-    add
-    ```
-    dtoverlay=imx219,cam0
-    dtoverlay=imx219,cam1
-    ```
-13. Enable camera: ```sudo raspi-config```
-    - Interface Options > Camera > Enable
-15. sudo reboot
-16. Test LibCamera:
-    ```
-    libcamera-hello --list-cameras
-    libcamera-hello -t 0 --camera 0
-    libcamera-hello -t 0 --camera 1
-    ```
 
 ## Execution
 Do once:
 1. Set source:  ```echo "source ~/Drone/install/setup.bash" >> ~/.bashrc```
   - You may need to modify setup.bash path
+2. Source: ```source ~/.bashrc```
+3. colcon build --packages-select px4_msgs
 
 Build and Run:
 1. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-2. Source: ```source ~/.bashrc```
-3. launch!
+2. launch!
      - ros2 launch test sensor.launch.py
      - ros2 launch system_launch main.launch.py
 
