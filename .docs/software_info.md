@@ -48,7 +48,7 @@
     ```
 6. Test micrortps: ```./MicroXRCEAgent serial --dev /dev/ttyUSB0 -b 921600```
     - if nothing is connected, it should say something like "1 port not found", working!
-7. Change QGroundControl parameters, then reboot:
+7. Connect Pixhawk to PC, change QGroundControl parameters, then reboot:
     ```
     MAV_1_CONFIG = TELEM2
     UXRCE_DDS_CFG = 0 (Disabled)
@@ -60,6 +60,8 @@
     sudo apt install pipx
     pipx install MAVProxy
     sudo apt remove modemmanager
+    pipx ensurepath
+    source ~/.bashrc
     ```
 10. Run MAVProxy:
     ```
@@ -88,7 +90,8 @@ Do once:
 
 Build and Run:
 1. colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
-2. launch!
+2. Source: ```source ~/.bashrc```
+3. launch!
      - ros2 launch test sensor.launch.py
      - ros2 launch system_launch main.launch.py
 
