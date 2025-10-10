@@ -24,5 +24,13 @@ def generate_launch_description():
       executable='test_imu',
       name='test_imu',
       output='screen'
-    )
+    ),
+
+    # Odometry Node
+    Node {
+      package='test',
+      executable='test_odo',
+      name='test_odo',
+      output='screen'
+    }
   ])
