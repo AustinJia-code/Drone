@@ -27,10 +27,10 @@ def generate_launch_description():
     ),
 
     # Odometry Node
-    Node {
+    Node (
       package='test',
       executable='test_odo',
       name='test_odo',
       output='screen'
-    }
+    )
   ])
