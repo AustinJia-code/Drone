@@ -8,7 +8,7 @@
 | ESC               | [Tekko32 F4](https://holybro.com//products/tekko32-f4-4in1-50a-esc)                     | ESC 4-in-1                        |
 | Motor             | [2212 920KV](https://www.aliexpress.us/item/2255800307898838.html?)                     | Motors                            |
 | Propeller         | [1045](https://www.aliexpress.us/item/2251832363284871.html?)                           | Propellers                        |
-| Camera            | [IMX219-83 Stereo](https://www.aliexpress.us/item/2255801158413046.html?)               | Vision and relative positioning   |
+| Camera            | [OV9715 Stereo](https://www.amazon.com/dp/B07R8LQKV4)               | Vision and relative positioning   |
 | Frame             | [S500 Quadcopter](https://www.aliexpress.us/item/2251832118132126.html?)                | Frame                             |
 | Battery           | [4s 5000mAh (14.8V)](https://www.amazon.com/dp/B06XK8WWX1/)                             | Battery                           |
 | RPi Stepdown      | [Generic](https://www.aliexpress.us/item/3256805630251942.html?)                        | Buck down for RPi (to 5V/5A)      |
