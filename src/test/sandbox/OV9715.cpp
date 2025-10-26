@@ -44,6 +44,7 @@ private:
   cv::VideoCapture stereo_cam;
   
   // Intrinsics estimates (use .calibrate () for real)
+  float max_depth_mm = 5000;
   float width_px = 2560;
   float height_px = 960;
   float baseline_mm = 60;
@@ -56,7 +57,7 @@ private:
                                                      0, 0, 1);    // 0, 0, 1
   // Manual distortion coefficients
   cv::Mat distortion = (cv::Mat_<double>(1,5) << 
-                        -0.43, // more negative to correct for barrel distortion
+                        -0.5, // more negative to correct for barrel distortion
                         0.1, 0.0, 0.0, 0.0);
 
   // Images
@@ -98,21 +99,17 @@ private:
     assert (!left_img.empty ());
     assert (!right_img.empty ());
 
-    /***** UNDISTORT *****/
-    cv::Mat left_undist, right_undist;
-    cv::undistort (left_img, left_undist, intrinsic_mat, distortion);
-    cv::undistort (right_img, right_undist, intrinsic_mat, distortion);
+    /***** UNDISTORT & RECTIFY *****/
+    cv::Size img_size = left_img.size ();
 
-    if (debug)
-    {
-      cv::imwrite ("./out/undistort_left.jpg", left_undist);
-      cv::imwrite ("./out/undistort_right.jpg", right_undist);
-    }
-
-    /***** RECTIFY *****/
-    cv::Size img_size = left_undist.size ();
-    cv::Mat R = cv::Mat::eye (3, 3, CV_64F);
-    cv::Mat T = (cv::Mat_<double>(3, 1) << baseline_mm, 0, 0);
+    // Estimated R and T manually
+    cv::Mat R;
+    cv::Vec3d axis = {0, 0, 1};
+    double theta_deg = 0.25;
+    double theta = theta_deg * M_PI / 180.0;
+    cv::Mat rvec = (cv::Mat_<double> (3,1) << axis[0]*theta, axis[1]*theta, axis[2]*theta);
+    cv::Rodrigues (rvec, R);
+    cv::Mat T = (cv::Mat_<double> (3, 1) << baseline_mm, -15, 0);
     
     cv::Mat R1, R2, P1, P2, Q;
     cv::Rect validRoi1, validRoi2;
@@ -156,8 +153,8 @@ private:
     
     // Apply rectification
     cv::Mat left_rect, right_rect;
-    cv::remap (left_undist, left_rect, map1_left, map2_left, cv::INTER_LINEAR);
-    cv::remap (right_undist, right_rect, map1_right, map2_right, cv::INTER_LINEAR);
+    cv::remap (left_img, left_rect, map1_left, map2_left, cv::INTER_LINEAR);
+    cv::remap (right_img, right_rect, map1_right, map2_right, cv::INTER_LINEAR);
     
     if (debug)
     {      
@@ -182,7 +179,7 @@ private:
 
     int minDisparity = 0;
     int numDisparities = 16 * 6;   // Must be divisible by 16
-    int blockSize = 3;             // Odd number
+    int blockSize = 11;             // Odd number
     
     cv::Ptr<cv::StereoSGBM> stereo = cv::StereoSGBM::create (
       minDisparity,
@@ -217,7 +214,7 @@ private:
 
     /***** DEPTH MAP *****/
     cv::Mat disparity_float;
-    disparity.convertTo(disparity_float, CV_32F, 1.0/16.0);
+    disparity.convertTo (disparity_float, CV_32F, 1.0/16.0);
 
     float f = intrinsic_mat.at<double> (0, 0);
     float B = baseline_mm;
@@ -231,7 +228,7 @@ private:
         float disp = disparity_float.at<float> (y, x);
         if (disp > 1.0)
         {
-          float depth = (f * B) / disp;
+          float depth = std::min ((f * B) / disp, max_depth_mm);
           depth_map.at<float> (y, x) = depth;
           min_depth = std::min (depth, min_depth);
           max_depth = std::max (depth, max_depth);
