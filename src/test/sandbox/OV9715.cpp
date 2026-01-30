@@ -126,7 +126,7 @@ private:
       1, 63, 10, 100, 32,
       cv::StereoSGBM::MODE_SGBM_3WAY);
 
-    cv::Mat disparity16S, disparity8U;
+    cv::Mat disparity16S, dis   parity8U;
     stereo->compute (left_gray, right_gray, disparity16S);
 
     disparity16S.convertTo (disparity8U, CV_8U, 255.0 / (numDisparities * 16));

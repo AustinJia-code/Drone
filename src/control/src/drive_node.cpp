@@ -7,6 +7,7 @@
 #include "px4_controller.hpp"
 #include "opmodes/tele_basic.hpp"
 #include "opmodes/auto_rise.hpp"
+#include "opmodes/auto_bezier.hpp"
 #include "sensor_msgs/msg/joy.hpp"
 
 using namespace std::chrono_literals;
@@ -49,7 +50,13 @@ public:
   void initialize ()
   {
     tele_ = std::make_unique<TeleBasic> (controller_, shared_from_this ());
-    auto_ = std::make_unique<AutoRise> (controller_, shared_from_this ());
+    auto_ = std::make_unique<AutoBezier> (controller_, shared_from_this (),
+      std::vector<Pose> {
+        Pose (0, 0, 5, 0),
+        Pose (10, 0, 5, 0),
+        Pose (10, 10, 5, 0),
+        Pose (0, 10, 5, 0)
+      }, 2.0f);
   }
 
 private:
