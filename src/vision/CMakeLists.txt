@@ -11,12 +11,17 @@ find_package (builtin_interfaces REQUIRED)
 find_package (eigen3_cmake_module REQUIRED)
 find_package (Eigen3 REQUIRED)
 find_package (rclcpp REQUIRED)
+find_package (sensor_msgs REQUIRED)
+find_package (geometry_msgs REQUIRED)
+find_package (OpenCV REQUIRED)
+find_package (cv_bridge REQUIRED)
 
 #******************************** SET UP TARGETS ******************************#
-# Camera node
-# add_executable (camera_listener src/camera_listener.cpp)
-# ament_target_dependencies (camera_listener rclcpp)
-# install (TARGETS camera_listener DESTINATION lib/${PROJECT_NAME})
+# Red circle detector node
+add_executable (red_detector_node src/red_detector_node.cpp)
+ament_target_dependencies (red_detector_node rclcpp sensor_msgs geometry_msgs
+                           cv_bridge OpenCV)
+install (TARGETS red_detector_node DESTINATION lib/${PROJECT_NAME})
 
 #*********************************** INSTALL **********************************#
 # Export information to downstream packages

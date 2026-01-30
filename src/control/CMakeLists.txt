@@ -30,7 +30,7 @@ target_include_directories (px4_controller PUBLIC
 # Drive node
 add_executable (drive_node 
                 src/drive_node.cpp)
-ament_target_dependencies (drive_node rclcpp px4_msgs sensor_msgs)
+ament_target_dependencies (drive_node rclcpp px4_msgs sensor_msgs geometry_msgs)
 install (TARGETS drive_node DESTINATION lib/${PROJECT_NAME})
 
 #*********************************** INSTALL **********************************#
